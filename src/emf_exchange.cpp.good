@@ -1,0 +1,205 @@
+/* $Id: emf_exchange.cpp,v 1.5 2006-10-30 15:17:55 gmurphy Exp $  */
+
+#include "mpi.h"
+#include "out.h"
+#include "problem.h"
+#define MWULD MPI_COMM_WORLD
+int
+emf_exchange (TNT::Array2D < double >emfx,
+	      TNT::Array2D < double >emfy,
+	      int myNorth, int mySouth, int myEast, int myWest, int myid)
+{
+
+
+  MPI_Status stat;
+
+  int fnx = emfx.dim1 ();
+  int fny = emfy.dim2 ();
+
+  int xfnx = emfx.dim1 ();
+  int xfny = emfx.dim2 ();
+
+  int yfnx = emfy.dim1 ();
+  int yfny = emfy.dim2 ();
+
+  int ne = NE;
+
+  unk test;
+
+
+  double gammam1 = PhysConsts::gamma - 1;
+  double gammam1i = 1.0 / gammam1;
+
+
+  MPI_Datatype FaceCol;
+  MPI_Datatype FaceRowt;
+
+  MPI_Datatype MpixFaceColumnType;
+  MPI_Datatype MpixFaceRowType;
+  MPI_Datatype MpiyFaceColumnType;
+  MPI_Datatype MpiyFaceRowType;
+
+
+
+
+
+
+
+
+  MPI_Type_vector (fnx,		/* # column elements */
+		   1,		/* 1 column only */
+		   fny,		/* skip ny elements */
+		   MPI_DOUBLE,	/* elements are double */
+		   &FaceCol);	/* MPI derived datatype */
+
+  MPI_Type_vector (1,		/* # row elements */
+		   fny,		/* 1 row only */
+		   0,		/* skip ny elements */
+		   //    myrow,   /* elements are double */
+		   MPI_DOUBLE,	/* elements are double */
+		   &FaceRowt);	/* MPI derived datatype */
+
+
+
+  MPI_Type_vector (xfnx,	/* # column elements */
+		   1,		/* 1 column only */
+		   xfny,	/* skip ny elements */
+		   MPI_DOUBLE,	/* elements are double */
+		   &MpixFaceColumnType);	/* MPI derived datatype */
+
+  MPI_Type_vector (1,		/* # row elements */
+		   xfny,	/* 1 row only */
+		   0,		/* skip ny elements */
+		   //    myrow,   /* elements are double */
+		   MPI_DOUBLE,	/* elements are double */
+		   &MpixFaceRowType);	/* MPI derived datatype */
+
+
+
+  MPI_Type_vector (yfnx,	/* # column elements */
+		   1,		/* 1 column only */
+		   yfny,	/* skip ny elements */
+		   MPI_DOUBLE,	/* elements are double */
+		   &MpiyFaceColumnType);	/* MPI derived datatype */
+
+  MPI_Type_vector (1,		/* # row elements */
+		   yfny,	/* 1 row only */
+		   0,		/* skip ny elements */
+		   //    myrow,   /* elements are double */
+		   MPI_DOUBLE,	/* elements are double */
+		   &MpiyFaceRowType);	/* MPI derived datatype */
+
+
+  MPI_Type_commit (&FaceCol);
+  MPI_Type_commit (&FaceRowt);
+  MPI_Type_commit (&MpiyFaceColumnType);
+  MPI_Type_commit (&MpiyFaceRowType);
+  MPI_Type_commit (&MpixFaceColumnType);
+  MPI_Type_commit (&MpixFaceRowType);
+
+
+
+#define DEBUG
+#ifdef DEBUG1
+  std::cout << "Proc " << myid << " okay to here " << std::endl;
+#endif
+
+
+  //========== FACE CENTRED ELECTRIC FIELD EXCHANGE ===============
+
+  // Send Columns
+  /* Sends to proc above */// Send him my 4th col from right
+  MPI_Send (&emfx[0][xfny - 4], 1, FaceCol, myNorth, myid, MWULD);
+  /* Receives from proc below */// Receive into leftmost col
+  MPI_Recv (&emfx[0][0], 1, FaceCol, mySouth, mySouth, MWULD, &stat);
+  /* Sends to proc below */// Send him my 4th leftmost col
+  MPI_Send (&emfx[0][3], 1, FaceCol, mySouth, myid, MWULD);
+  /* Receives from proc above */// Receive into rightmost col
+  MPI_Recv (&emfx[0][xfny - 1], 1, FaceCol, myNorth, myNorth, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+  /* Sends to proc above */// Send him my 3rd rightmost col 
+  MPI_Send (&emfx[0][xfny - 3], 1, FaceCol, myNorth, myid, MWULD);
+  /* Receives from proc below */// Receive into 2nd leftmost col
+  MPI_Recv (&emfx[0][1], 1, FaceCol, mySouth, mySouth, MWULD, &stat);
+  /* Sends to proc below */// Send him my 3rd lowest col
+  MPI_Send (&emfx[0][2], 1, FaceCol, mySouth, myid, MWULD);
+  /* Receives from proc above */// Receive into 2nd highest col
+  MPI_Recv (&emfx[0][xfny - 2], 1, FaceCol, myNorth, myNorth, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+  // Send Rows
+  /* Sends to proc W */
+  MPI_Send (&emfx[4][0], 1, FaceRowt, myWest, myid, MWULD);
+  /* Sends to proc E */
+  MPI_Send (&emfx[xfnx - 5][0], 1, FaceRowt, myEast, myid, MWULD);
+  /* Receives from proc E */
+  MPI_Recv (&emfx[xfnx - 1][0], 1, FaceRowt, myEast, myEast, MWULD, &stat);
+  /* Receives from proc W */
+  MPI_Recv (&emfx[0][0], 1, FaceRowt, myWest, myWest, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+  // Send FaceRows
+  /* Sends to proc W */
+  MPI_Send (&emfx[3][0], 1, FaceRowt, myWest, myid, MWULD);
+  /* Sends to proc E */
+  MPI_Send (&emfx[xfnx - 4][0], 1, FaceRowt, myEast, myid, MWULD);
+  /* Receives from proc E */
+  MPI_Recv (&emfx[xfnx - 2][0], 1, FaceRowt, myEast, myEast, MWULD, &stat);
+  /* Receives from proc W */
+  MPI_Recv (&emfx[1][0], 1, FaceRowt, myWest, myWest, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+//  MPI_Send (&emfx[xfnx - 3][0], 1, FaceRowt, myEast, myid, MWULD);
+//  MPI_Recv (&emfx[2][0], 1, FaceRowt, myWest, myWest, MWULD, &stat);
+//  MPI_Barrier (MWULD);
+
+
+  // Send Columns
+  /* Sends to proc above */// Send him my second col from top
+  MPI_Send (&emfy[0][yfny - 5], 1, FaceCol, myNorth, myid, MWULD);
+  /* Sends to proc below */// Send him my second lowest col
+  MPI_Send (&emfy[0][4], 1, FaceCol, mySouth, myid, MWULD);
+  /* Receives from proc below */// Receive into lowest col
+  MPI_Recv (&emfy[0][0], 1, FaceCol, mySouth, mySouth, MWULD, &stat);
+  /* Receives from proc above */// Receive into highest col
+  MPI_Recv (&emfy[0][yfny - 1], 1, FaceCol, myNorth, myNorth, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+  /* Sends to proc above */// Send him my second col from top
+  MPI_Send (&emfy[0][yfny - 4], 1, FaceCol, myNorth, myid, MWULD);
+  /* Sends to proc below */// Send him my second lowest col
+  MPI_Send (&emfy[0][3], 1, FaceCol, mySouth, myid, MWULD);
+  /* Receives from proc below */// Receive into lowest col
+  MPI_Recv (&emfy[0][1], 1, FaceCol, mySouth, mySouth, MWULD, &stat);
+  /* Receives from proc above */// Receive into highest col
+  MPI_Recv (&emfy[0][yfny - 2], 1, FaceCol, myNorth, myNorth, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+//  MPI_Send (&emfy[0][yfny - 3], 1, FaceCol, myNorth, myid, MWULD);
+//  MPI_Recv (&emfy[0][2], 1, FaceCol, mySouth, mySouth, MWULD, &stat);
+//  MPI_Barrier (MWULD);
+
+  // Send Rows
+  /* Sends to proc W */
+  MPI_Send (&emfy[3][0], 1, FaceRowt, myWest, myid, MWULD);
+  /* Sends to proc E */
+  MPI_Send (&emfy[yfnx - 4][0], 1, FaceRowt, myEast, myid, MWULD);
+  /* Receives from proc E */
+  MPI_Recv (&emfy[yfnx - 1][0], 1, FaceRowt, myEast, myEast, MWULD, &stat);
+  /* Receives from proc W */
+  MPI_Recv (&emfy[0][0], 1, FaceRowt, myWest, myWest, MWULD, &stat);
+  MPI_Barrier (MWULD);
+  // Send FaceRows
+  /* Sends to proc W */
+  MPI_Send (&emfy[2][0], 1, FaceRowt, myWest, myid, MWULD);
+  /* Sends to proc E */
+  MPI_Send (&emfy[yfnx - 3][0], 1, FaceRowt, myEast, myid, MWULD);
+  /* Receives from proc E */
+  MPI_Recv (&emfy[yfnx - 2][0], 1, FaceRowt, myEast, myEast, MWULD, &stat);
+  /* Receives from proc W */
+  MPI_Recv (&emfy[1][0], 1, FaceRowt, myWest, myWest, MWULD, &stat);
+  MPI_Barrier (MWULD);
+
+  return 0;
+}

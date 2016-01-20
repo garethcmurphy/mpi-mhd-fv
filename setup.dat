@@ -1,0 +1,5 @@
+1 	/* print time  */
+0.1   /* CFL number */
+604 	/* nx */
+604 	/* ny */
+2600 	/* maxsteps */

@@ -1,0 +1,1101 @@
+%!PS-Adobe-3.0
+%%Title: src/maes.cpp
+%%For: gmurphy
+%%Creator: VIM - Vi IMproved 7.0 (2006 May 7)
+%%CreationDate: Wed Nov  8 14:59:19 2006
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 59 49 564 800
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: A4
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/share/vim/vim70/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/share/vim/vim70/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+595 842 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(src/maes.cpp[+]                                                               Page 1)59.5 792.4 ms
+F0 sf
+0 0 1 r
+(/* $Id: maes.cpp,v 1.4 2006-11-05 12:51:25 gmurphy Exp $  */)59.5 772.4 ms
+(/*)59.5 752.4 ms
+( * CAUTION: Needs updating)59.5 742.4 ms
+( * Has not been modified for correct addressing)59.5 732.4 ms
+( * array indices at present include boundaries)59.5 722.4 ms
+( * \(need dummy variables to exclude boundaries\))59.5 712.4 ms
+( */)59.5 702.4 ms
+1 0 1 r
+(#include )59.5 682.4 ms
+1 0 0 r
+("initialise_maes.h")s
+0 1 0 r
+(int)59.5 662.4 ms
+0 g
+(initialise_maes \(TNT::Array2D < unk > mesh,)59.5 652.4 ms
+(       TNT::Array2D < )59.5 642.4 ms
+0 1 0 r
+(double)s
+0 g
+( >faceBx,)s
+(       TNT::Array2D < )59.5 632.4 ms
+0 1 0 r
+(double)s
+0 g
+( >faceBy,)s
+(       MPI_Comm new_comm, )59.5 622.4 ms
+0 1 0 r
+(int)s
+0 g
+( ndims, )s
+0 1 0 r
+(int)s
+0 g
+( *dim_size,)s
+(       )59.5 612.4 ms
+0 1 0 r
+(double)s
+0 g
+( *xsize, )s
+0 1 0 r
+(double)s
+0 g
+( *ysize\))s
+({)59.5 602.4 ms
+(   )59.5 592.4 ms
+0 1 0 r
+(double)s
+0 g
+( minpressure=)s
+1 0 0 r
+(9e99)s
+0 g
+(;)s
+(   )59.5 582.4 ms
+0 1 0 r
+(double)s
+0 g
+( mindensity=)s
+1 0 0 r
+(9e99)s
+0 g
+(;)s
+(  std::cout << )59.5 562.4 ms
+1 0 0 r
+("Initialise Magnetised Accretion-Ejection Structure ")s
+0 g
+( << std::endl;)s
+(  )59.5 552.4 ms
+(  )59.5 542.4 ms
+0 1 0 r
+(const)s
+0 g
+( )s
+0 1 0 r
+(int)s
+0 g
+( nx = mesh.dim1 \(\);)s
+(  )59.5 532.4 ms
+0 1 0 r
+(const)s
+0 g
+( )s
+0 1 0 r
+(int)s
+0 g
+( ny = mesh.dim2 \(\);)s
+(  )59.5 522.4 ms
+0 1 0 r
+(const)s
+0 g
+( )s
+0 1 0 r
+(double)s
+0 g
+( gammam1i = )s
+1 0 0 r
+(1)s
+0 g
+( / \(PhysConsts::gamma - )s
+1 0 0 r
+(1)s
+0 g
+(\);)s
+(  )59.5 512.4 ms
+0 1 0 r
+(const)s
+0 g
+( )s
+0 1 0 r
+(double)s
+0 g
+( gammam1 = \(PhysConsts::gamma - )s
+1 0 0 r
+(1)s
+0 g
+(\);)s
+(  )59.5 502.4 ms
+0 1 0 r
+(double)s
+0 g
+( r0, r, z, h;)s
+(  )59.5 492.4 ms
+0 1 0 r
+(double)s
+0 g
+( r2, z2, h2;)s
+(  )59.5 482.4 ms
+0 1 0 r
+(double)s
+0 g
+( r02;)s
+(  )59.5 472.4 ms
+0 0 1 r
+(// ms is a parameter smaller than unity )s
+0 g
+(  )59.5 462.4 ms
+0 0 1 r
+(// which then ensures an initial subsonic poloidal )s
+0 g
+(  )59.5 452.4 ms
+0 0 1 r
+(// inflow)s
+0 g
+(  )59.5 442.4 ms
+0 1 0 r
+(double)s
+0 g
+( ms = )s
+1 0 0 r
+(0.3)s
+0 g
+(;)s
+(  )59.5 432.4 ms
+0 1 0 r
+(double)s
+0 g
+( rho, vtheta, vz, vr, bz, br, btheta;)s
+(  )59.5 422.4 ms
+0 0 1 r
+(// plasma beta parameter measuring the ratio of the )s
+0 g
+(  )59.5 412.4 ms
+0 0 1 r
+(// thermal pressure to the magnetic pressure at Z = 0)s
+0 g
+(  )59.5 402.4 ms
+0 1 0 r
+(double)s
+0 g
+( beta = )s
+1 0 0 r
+(1.0)s
+0 g
+(;)s
+(  )59.5 382.4 ms
+0 1 0 r
+(double)s
+0 g
+( pressure = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(  )59.5 372.4 ms
+0 0 1 r
+(// Disk Aspect Ratio)s
+0 g
+(  )59.5 362.4 ms
+0 1 0 r
+(double)s
+0 g
+( eps = )s
+1 0 0 r
+(0.1)s
+0 g
+(;)s
+(  )59.5 342.4 ms
+0 1 0 r
+(int)s
+0 g
+( coords[] = { )s
+1 0 0 r
+(0)s
+0 g
+(, )s
+1 0 0 r
+(0)s
+0 g
+( };)s
+(  )59.5 322.4 ms
+0 1 0 r
+(int)s
+0 g
+( myid = )s
+1 0 0 r
+(99)s
+0 g
+(;)s
+(  MPI_Comm_rank \(MPI_COMM_WORLD, &myid\);)59.5 302.4 ms
+(  MPI_Cart_coords \(new_comm, myid, ndims, coords\);)59.5 282.4 ms
+(  )59.5 272.4 ms
+0 1 0 r
+(int)s
+0 g
+( dims[] = { )s
+1 0 0 r
+(0)s
+0 g
+(, )s
+1 0 0 r
+(0)s
+0 g
+( };)s
+(  MPI_Cartdim_get \(new_comm, dims\);)59.5 262.4 ms
+(  )59.5 242.4 ms
+0 1 0 r
+(int)s
+0 g
+( xmax = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(  )59.5 232.4 ms
+0 1 0 r
+(int)s
+0 g
+( ymax = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(  MPI_Allreduce \(coords, &xmax, )59.5 222.4 ms
+1 0 0 r
+(1)s
+0 g
+(, MPI_INT, MPI_MAX, new_comm\);)s
+(  MPI_Allreduce \(coords + )59.5 212.4 ms
+1 0 0 r
+(1)s
+0 g
+(, &ymax, )s
+1 0 0 r
+(1)s
+0 g
+(, MPI_INT, MPI_MAX, new_comm\);)s
+(  xmax++;)59.5 202.4 ms
+(  ymax++;)59.5 192.4 ms
+(  std::cout << )59.5 172.4 ms
+1 0 0 r
+("Proc")s
+0 g
+( << myid << )s
+1 0 0 r
+(" ")s
+0 g
+( << xmax << )s
+1 0 0 r
+(" ")s
+0 g
+( << ymax << std::endl;)s
+(  )59.5 162.4 ms
+0 1 0 r
+(int)s
+0 g
+( myaddress[] = { )s
+1 0 0 r
+(0)s
+0 g
+(, )s
+1 0 0 r
+(0)s
+0 g
+( };)s
+(  myaddress[)59.5 152.4 ms
+1 0 0 r
+(0)s
+0 g
+(] = \(nx - )s
+1 0 0 r
+(2)s
+0 g
+( * NGC\) * coords[)s
+1 0 0 r
+(0)s
+0 g
+(];)s
+(  myaddress[)59.5 142.4 ms
+1 0 0 r
+(1)s
+0 g
+(] = \(ny - )s
+1 0 0 r
+(2)s
+0 g
+( * NGC\) * coords[)s
+1 0 0 r
+(1)s
+0 g
+(];)s
+(   *xsize = )59.5 112.4 ms
+1 0 0 r
+(40)s
+0 g
+(;)s
+(  )59.5 102.4 ms
+0 0 1 r
+(// Initialise the face-centred magnetic field)s
+0 g
+(  )59.5 92.4 ms
+1 1 0 r
+(for)s
+0 g
+( \()s
+0 1 0 r
+(int)s
+0 g
+( jj = )s
+1 0 0 r
+(0)s
+0 g
+(; jj < ny +)s
+1 0 0 r
+(1)s
+0 g
+(; jj++\))s
+(    )59.5 82.4 ms
+1 1 0 r
+(for)s
+0 g
+( \()s
+0 1 0 r
+(int)s
+0 g
+( ii = )s
+1 0 0 r
+(0)s
+0 g
+(; ii < nx +)s
+1 0 0 r
+(1)s
+0 g
+(; ii++\))s
+(      {)59.5 72.4 ms
+(         )59.5 62.4 ms
+0 0 1 r
+(//)s
+0 g
+(   )59.5 52.4 ms
+0 1 0 r
+(int)s
+0 g
+( gg = std::max\(ii - NGC, )s
+1 0 0 r
+(0)s
+0 g
+( \);)s
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(src/maes.cpp[+]                                                               Page 2)59.5 792.4 ms
+F0 sf
+(   )59.5 772.4 ms
+0 1 0 r
+(float)s
+0 g
+( myx = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(   )59.5 762.4 ms
+0 1 0 r
+(float)s
+0 g
+( myy = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(   myx = \()59.5 752.4 ms
+0 1 0 r
+(float)s
+0 g
+(\) myaddress[)s
+1 0 0 r
+(0)s
+0 g
+(] + gg;)s
+(   )59.5 742.4 ms
+0 1 0 r
+(float)s
+0 g
+( delta_x = *xsize / \(\(nx - )s
+1 0 0 r
+(2)s
+0 g
+( * NGC\) * xmax\);)s
+(   )59.5 732.4 ms
+0 0 1 r
+(//std::cout << delta_x << " " <<delta_y << std::endl;)s
+0 g
+(   r = \()59.5 722.4 ms
+1 0 0 r
+(40.0)s
+0 g
+( * myx\) / \(dim_size[)s
+1 0 0 r
+(0)s
+0 g
+(] * nx\) + delta_x * )s
+1 0 0 r
+(0.5)s
+0 g
+(;)s
+(   h = eps * r;)59.5 712.4 ms
+(   h2 = h * h;)59.5 702.4 ms
+(   r2 = r * r;)59.5 692.4 ms
+(   r0 = )59.5 682.4 ms
+1 0 0 r
+(4)s
+0 g
+(;)s
+(   r02 = r0 * r0;)59.5 672.4 ms
+(   bz = pow \(r0, )59.5 662.4 ms
+1 0 0 r
+(2.5)s
+0 g
+(\) / \(pow \(\(r02 + r2\), )s
+1 0 0 r
+(1.25)s
+0 g
+(\) * sqrt \(beta\)\);)s
+(   faceBx[ii][jj] = )59.5 652.4 ms
+1 0 0 r
+(0.0)s
+0 g
+(;)s
+(   faceBy[ii][jj] = bz;)59.5 642.4 ms
+(   )59.5 632.4 ms
+1 1 0 r
+(if)s
+0 g
+( \( isnan\(bz\)\){)s
+(      MPI_Abort \( MPI_COMM_WORLD, )59.5 622.4 ms
+1 0 0 r
+(33333333)s
+0 g
+(\);)s
+(      exit\()59.5 612.4 ms
+1 0 0 r
+(0)s
+0 g
+(\);)s
+(   })59.5 602.4 ms
+0 0 1 r
+(// faceBy[ii][jj] = 3.0;)59.5 592.4 ms
+0 g
+(      })59.5 582.4 ms
+(  )59.5 572.4 ms
+1 0 1 r
+(#undef PROBS_WITH_B)59.5 552.4 ms
+(#ifdef PROBS_WITH_B)59.5 542.4 ms
+0 g
+(  )59.5 532.4 ms
+1 1 0 r
+(for)s
+0 g
+( \()s
+0 1 0 r
+(int)s
+0 g
+( hh = )s
+1 0 0 r
+(0)s
+0 g
+(; hh < ny + )s
+1 0 0 r
+(1)s
+0 g
+(; hh++\))s
+(    )59.5 522.4 ms
+1 1 0 r
+(for)s
+0 g
+( \()s
+0 1 0 r
+(int)s
+0 g
+( gg = )s
+1 0 0 r
+(0)s
+0 g
+(; gg < nx + )s
+1 0 0 r
+(1)s
+0 g
+(; gg++\))s
+(      {)59.5 512.4 ms
+(   faceBy[hh][gg] = )59.5 502.4 ms
+1 0 0 r
+(3.0)s
+0 g
+(;)s
+(      })59.5 492.4 ms
+1 0 1 r
+(#endif)59.5 482.4 ms
+0 g
+(   *xsize = )59.5 462.4 ms
+1 0 0 r
+(40)s
+0 g
+(;)s
+(   *ysize = )59.5 452.4 ms
+1 0 0 r
+(80)s
+0 g
+(;)s
+(  )59.5 432.4 ms
+1 1 0 r
+(for)s
+0 g
+( \()s
+0 1 0 r
+(int)s
+0 g
+( jj = )s
+1 0 0 r
+(0)s
+0 g
+(; jj < ny ; jj++\))s
+(    )59.5 422.4 ms
+1 1 0 r
+(for)s
+0 g
+( \()s
+0 1 0 r
+(int)s
+0 g
+( ii = )s
+1 0 0 r
+(0)s
+0 g
+(; ii < nx ; ii++\))s
+(      {)59.5 412.4 ms
+(   )59.5 402.4 ms
+0 0 1 r
+(// Mass Density)s
+0 g
+(   )59.5 382.4 ms
+0 1 0 r
+(int)s
+0 g
+( gg = ii - NGC;)s
+(   )59.5 372.4 ms
+0 1 0 r
+(int)s
+0 g
+( hh = jj - NGC;)s
+(   )59.5 362.4 ms
+0 1 0 r
+(float)s
+0 g
+( myx = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(   )59.5 352.4 ms
+0 1 0 r
+(float)s
+0 g
+( myy = )s
+1 0 0 r
+(0)s
+0 g
+(;)s
+(   myx = \()59.5 342.4 ms
+0 1 0 r
+(float)s
+0 g
+(\) myaddress[)s
+1 0 0 r
+(0)s
+0 g
+(] + gg;)s
+(   myy = \()59.5 332.4 ms
+0 1 0 r
+(float)s
+0 g
+(\) myaddress[)s
+1 0 0 r
+(1)s
+0 g
+(] + hh;)s
+(   )59.5 322.4 ms
+0 1 0 r
+(float)s
+0 g
+( delta_x = *xsize / \(\(nx - )s
+1 0 0 r
+(2)s
+0 g
+( * NGC\) * xmax\);)s
+(   )59.5 312.4 ms
+0 1 0 r
+(float)s
+0 g
+( delta_y = *ysize / \(\(ny - )s
+1 0 0 r
+(2)s
+0 g
+( * NGC\) * ymax\);)s
+(   )59.5 302.4 ms
+0 0 1 r
+(//std::cout << delta_x << " " <<delta_y << std::endl;)s
+0 g
+(   z = \()59.5 292.4 ms
+1 0 0 r
+(80.0)s
+0 g
+( * myy\) / \(dim_size[)s
+1 0 0 r
+(1)s
+0 g
+(] * ny\) + delta_y * )s
+1 0 0 r
+(0.5)s
+0 g
+(;)s
+(   r = \()59.5 282.4 ms
+1 0 0 r
+(40.0)s
+0 g
+( * myx\) / \(dim_size[)s
+1 0 0 r
+(0)s
+0 g
+(] * nx\) + delta_x * )s
+1 0 0 r
+(0.5)s
+0 g
+(;)s
+(   r = std::max\(r, delta_x*)59.5 272.4 ms
+1 0 0 r
+(0.5)s
+0 g
+(\);)s
+(   z = std::max\(z, delta_y*)59.5 262.4 ms
+1 0 0 r
+(0.5)s
+0 g
+(\);)s
+(   h = eps * r;)59.5 252.4 ms
+(   h2 = h * h;)59.5 242.4 ms
+(   z2 = z * z;)59.5 232.4 ms
+(   r2 = r * r;)59.5 222.4 ms
+(   )59.5 212.4 ms
+0 0 1 r
+(/* R0 is a constant set equal to 4 in our runs. )s
+(    * This offset radius in the denominator makes the )59.5 202.4 ms
+(    * density regular up to R = 0. )59.5 192.4 ms
+(    */)59.5 182.4 ms
+0 g
+(   r0 = )59.5 172.4 ms
+1 0 0 r
+(4)s
+0 g
+(;)s
+(   r02 = r0 * r0;)59.5 162.4 ms
+(   rho =)59.5 142.4 ms
+(    std::max\( )59.5 132.4 ms
+1 0 0 r
+(1e-6)s
+0 g
+(,\(pow \(r0, )s
+1 0 0 r
+(1.5)s
+0 g
+(\) / pow \(\(r0 * r0 + r * r\), )s
+1 0 0 r
+(0.75)s
+0 g
+(\)\)  \)*)s
+(     std::pow \(std::max \()59.5 122.4 ms
+1 0 0 r
+(1e-6)s
+0 g
+(, \()s
+1 0 0 r
+(1)s
+0 g
+( - )s
+1 0 0 r
+(0.5)s
+0 g
+( * \(gammam1\) * z2 / h2\)\),)s
+(          gammam1i\);)59.5 112.4 ms
+(   )59.5 102.4 ms
+0 0 1 r
+(//mesh[ii][jj] _MASS= \(pow\(r0,1.5\)/pow\(\(r0*r0+r*r\),0.75\)\)*pow \(max\(1e-6,  \(1- 0.5)s
+(* \(gammam1\) * z2/h2 \)\), gammam1i \) ;)59.5 92.4 ms
+0 g
+(   rho = std::max\()59.5 82.4 ms
+1 0 0 r
+(1e-12)s
+0 g
+(, rho\);)s
+(   mesh[ii][jj] _MASS = rho;)59.5 72.4 ms
+(   )59.5 52.4 ms
+0 0 1 r
+(// Rotation Profile)s
+re sp
+%%PageTrailer
+%%Page: 3 3
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(src/maes.cpp[+]                                                               Page 3)59.5 792.4 ms
+F0 sf
+(   vtheta = \()59.5 772.4 ms
+1 0 0 r
+(1)s
+0 g
+( - eps * eps\) * sqrt \(r0\) * exp \(-)s
+1 0 0 r
+(2)s
+0 g
+( * z2 / h2\) / \(eps * pow \(\(r02 + r2)s
+(\), )59.5 762.4 ms
+1 0 0 r
+(0.25)s
+0 g
+(\)\);)s
+(   mesh[ii][jj] _MOMZ =)59.5 752.4 ms
+(     mesh[ii][jj] _MASS * vtheta;)59.5 742.4 ms
+(   )59.5 732.4 ms
+1 1 0 r
+(if)s
+0 g
+( \(isnan \(mesh[ii][jj] _MOMZ\)\))s
+(     {)59.5 722.4 ms
+(       std::cout << )59.5 712.4 ms
+1 0 0 r
+("z-momentum is nan")s
+0 g
+( << std::endl;)s
+(       MPI_Abort \(MPI_COMM_WORLD, )59.5 702.4 ms
+1 0 0 r
+(0)s
+0 g
+(\);)s
+(       exit \()59.5 692.4 ms
+1 0 0 r
+(0)s
+0 g
+(\);)s
+(     })59.5 682.4 ms
+(   )59.5 662.4 ms
+0 0 1 r
+(// Poloidal Velocity)s
+0 g
+(   vr = \(-ms\) * sqrt \(r0\) * exp \(-)59.5 652.4 ms
+1 0 0 r
+(2)s
+0 g
+( * z2 / h2\) / \(pow \(\(r02 + r2\), )s
+1 0 0 r
+(0.25)s
+0 g
+(\)\);)s
+(   mesh[ii][jj] _MOMX =)59.5 642.4 ms
+(     mesh[ii][jj] _MASS * vr;)59.5 632.4 ms
+(   )59.5 622.4 ms
+1 1 0 r
+(if)s
+0 g
+( \(isnan \(mesh[ii][jj] _MOMX\)\))s
+(     {)59.5 612.4 ms
+(       std::cout << )59.5 602.4 ms
+1 0 0 r
+("x-momentum is nan")s
+0 g
+( << std::endl;)s
+(       MPI_Abort \(MPI_COMM_WORLD, )59.5 592.4 ms
+1 0 0 r
+(99)s
+0 g
+(\);)s
+(       exit \()59.5 582.4 ms
+1 0 0 r
+(0)s
+0 g
+(\);)s
+(     })59.5 572.4 ms
+(   vz = vr*z/r;)59.5 552.4 ms
+(   mesh[ii][jj] _MOMY = mesh[ii][jj] _MOMX *z / r;)59.5 542.4 ms
+(   )59.5 532.4 ms
+1 1 0 r
+(if)s
+0 g
+( \(isnan \(mesh[ii][jj] _MOMY\)\))s
+(     {)59.5 522.4 ms
+(       std::cout << )59.5 512.4 ms
+1 0 0 r
+("y-momentum is nan")s
+0 g
+( << std::endl;)s
+(       MPI_Abort \(MPI_COMM_WORLD, )59.5 502.4 ms
+1 0 0 r
+(101)s
+0 g
+(\);)s
+(       exit \()59.5 492.4 ms
+1 0 0 r
+(0)s
+0 g
+(\);)s
+(     })59.5 482.4 ms
+(   )59.5 462.4 ms
+0 0 1 r
+(// Magnetic Field)s
+0 g
+(   bz = pow \(r0, )59.5 452.4 ms
+1 0 0 r
+(2.5)s
+0 g
+(\) / \(pow \(\(r02 + r2\), )s
+1 0 0 r
+(1.25)s
+0 g
+(\) * sqrt \(beta\)\);)s
+(   bz =  )59.5 442.4 ms
+1 0 0 r
+(0.5)s
+0 g
+(*\(faceBy[ii][jj] + faceBy[ii][jj+)s
+1 0 0 r
+(1)s
+0 g
+(]\);)s
+(   br = )59.5 432.4 ms
+1 0 0 r
+(0)s
+0 g
+(;)s
+(   btheta = )59.5 422.4 ms
+1 0 0 r
+(0)s
+0 g
+(;)s
+(   )59.5 402.4 ms
+0 0 1 r
+(// Pressure = rho ^ \(5/3\))s
+0 g
+(   pressure = pow \(rho, PhysConsts::gamma\);)59.5 392.4 ms
+(   )59.5 382.4 ms
+(   )59.5 372.4 ms
+0 0 1 r
+(// Energy)s
+0 g
+(   mesh[ii][jj] _B_X = )59.5 362.4 ms
+1 0 0 r
+(0.)s
+0 g
+(;)s
+(   mesh[ii][jj] _B_Y = bz;)59.5 352.4 ms
+(   mesh[ii][jj] _B_Z = )59.5 342.4 ms
+1 0 0 r
+(0.)s
+0 g
+(;)s
+(   )59.5 332.4 ms
+0 1 0 r
+(double)s
+0 g
+( vv2= vz * vz + vr * vr + vtheta * vtheta;)s
+(   )59.5 322.4 ms
+0 1 0 r
+(double)s
+0 g
+( b2 =  bz * bz + br * br + btheta * btheta;)s
+(   mesh[ii][jj] _ENER =)59.5 312.4 ms
+(     \()59.5 302.4 ms
+1 0 0 r
+(0.5)s
+0 g
+( * rho * vv2\) + \()s
+1 0 0 r
+(0.5)s
+0 g
+( * b2\) + pressure * gammam1i;)s
+(   mesh[ii][jj].temperature = myid;)59.5 282.4 ms
+(   minpressure=std::min\(pressure,minpressure\);)59.5 262.4 ms
+(   mindensity=std::min\(rho,mindensity\);)59.5 252.4 ms
+(      })59.5 242.4 ms
+(  std::cout )59.5 222.4 ms
+(     << )59.5 212.4 ms
+1 0 0 r
+("Min pressure ")s
+0 g
+( <<minpressure )s
+(     << std::endl;)59.5 202.4 ms
+(  std::cout )59.5 192.4 ms
+(     << )59.5 182.4 ms
+1 0 0 r
+("Min density ")s
+0 g
+( <<mindensity )s
+(     << std::endl;)59.5 172.4 ms
+(  )59.5 152.4 ms
+0 0 1 r
+(//)s
+0 g
+(})59.5 112.4 ms
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 3
+%%EOF
+
