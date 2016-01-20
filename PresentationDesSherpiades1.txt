@@ -1,0 +1,9 @@
+
+Je ecrit maintenant un code numerique pour le SMAE (la Systeme Magnitisee d'Accretion-Ejection). C'est un simulation tres difficile pour une code numerique, a cause de la tres grand range dynamique, douze ordres de magnitude pour la densite. Ca pose un grand problem pour les pressions negatifs et la divergence de la champ magnetique. Ainsi on utilisee la method de transport constraint (qui c'est la application directement de la troisieme loi de Maxwell, la loi de Faraday, en forme integral)
+
+Les previous simulations ete avec VAC et FLASH, la nouvelle code promis des nouvelles techniques et peut-etre resultats differents.
+
+Aussi la code numerique est en parallel, sur memoire distribuee, et utilisee l'interface passage messagerie.
+
+Apres avoir fini le simulation, qui est presque complet, je introduit un terme du pression, a cause de les pairs electron-positrons generee par proces compton-invers. 
+
