@@ -50,7 +50,7 @@ TNT::Array2D < unk > recvmesh,
 
 
 
-  MPI_Aint disps[3] = { 0, (int) test.array - (int) &test.temperature, sizeof (test) };	/* guessing... */
+  MPI_Aint disps[3] = { 0, (unsigned long int) test.array - (unsigned long int) &test.temperature, sizeof (test) };	/* guessing... */
   int blks[3] = { 1, ne, 1 };
   MPI_Datatype types[3] = { MPI_INT, MPI_DOUBLE, MPI_UB };
 

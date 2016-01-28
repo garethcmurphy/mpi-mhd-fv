@@ -7,15 +7,15 @@ export CC = gcc
 #export MPICH_CXX = g++
 export CXX = mpicxx
 #export CXX = ~/mpich2-1.0.3-gcc/bin/mpicxx
-export CXXFLAGS = -g -O0 -w -I${HOME}/tnt -I${HOME}/Documents/hdf5/include
+export CXXFLAGS = -g -O0 -w -I${HOME}//Downloads/tnt -I${HOME}/local/include -DH5_USE_16_API
 # the linker is also "gcc". It might be something else with other compilers.
 export LD = mpicxx
 #export LD = ~/mpich2-1.0.3-gcc/bin/mpicxx
 # Compiler flags go here.
-export CFLAGS = -g -w -I${HOME}//Documents/hdf5/include
+export CFLAGS = -g -w -I${HOME}/local/include
 # Linker flags go here. Currently there aren't any, but if we'll switch to
 # code optimization, we might add "-s" here to strip debug info and symbols.
-export LDFLAGS =-L${HOME}/Documents/hdf5/lib -lhdf5
+export LDFLAGS =-L${HOME}/local/lib -lhdf5
 # use this command to erase files.
 export RM = /bin/rm -f
 # list of generated object files.
