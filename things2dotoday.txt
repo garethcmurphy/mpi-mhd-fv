@@ -1,8 +1,0 @@
-1. Email hilary - done!
-
-2. Book hotel - not done, emailed RC
-
-3. Work on code - fix the staggered mesh problemo - need to interchange the face centred E fields correctly. Also upwind the E field at shocks.
-
-
-4. Work on the presentation for the Sherpiades
