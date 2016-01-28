@@ -1,5 +1,8 @@
 syntax: glob
 MAES
+*.h5
+*.cut
+out_*.dat
 *.orig
 *.rej
 *~
