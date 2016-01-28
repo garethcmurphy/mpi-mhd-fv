@@ -58,3 +58,5 @@ tar:
 	rm -rf out_*
 	make -C src clean
 	tar czvf good.tgz  src GNUmakefile test.sh
+tidy:
+	indent -bli3 -di16 *.cpp
