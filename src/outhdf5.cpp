@@ -60,7 +60,7 @@ outhdf5 (int numprocs, int myid, MPI_Comm new_comm, int ndims, int *dim_size,
   MPI_Datatype mycolumn;
 
   unk test;
-  MPI_Aint displacements[3] = { 0, (int) test.array - (int) &test.temperature, sizeof (test) };	/* guessing... */
+  MPI_Aint displacements[3] = { 0, (unsigned long int) test.array - (unsigned long int) &test.temperature, sizeof (test) };	/* guessing... */
   int blks[3] = { 1, ne, 1 };
   MPI_Datatype types_str[3] = { MPI_INT, MPI_DOUBLE, MPI_UB };
 

@@ -1,9 +1,0 @@
-J'ecris en ce moment un code numerique pour traiter les  SMAE (Structures magnetisees d'accretion ejection)
-
-C'est une probleme difficile pour un code, en raison du grand domaine dynamique, douze ordres de grandeurs pour la densite. Ca pose egalement un gros probleme de pressions negatives et pour la divergence du champ magnetique.  J'utilise la methode de "transport contraint" (qui est l'application directe de la troisieme loi de Maxwell, la loi de Faraday, sous forme integrale)
-
-Par rapport aux simulations precedentes, faites avec VAC et FLASH, le nouveau code utilise de nouvelles techniques et donnera peut-etre des resultats differents.
-
-De plus, le code est ecrit en parallele, sur memoire distribuee, et utilise MPI.
-
-Apres avoir fini la simulation SMAE, qui est presque complete, j'introduirai un terme du pression, a cause des paires electron-positrons generees par le processus de Compton inverse. 

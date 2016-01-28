@@ -1,9 +1,9 @@
 /* $Id: problem.h,v 1.5 2006-11-16 13:48:07 gmurphy Exp $  */
 
-//#define BLAST
+#define BLAST
 //#define ORSZAGTANG
 //#define JET
-#define MAES
+//#define MAES
 
 
 
