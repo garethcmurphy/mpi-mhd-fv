@@ -1,4 +1,3 @@
-/* $Id: tnt_subscript.h,v 1.3 2006-10-30 15:17:55 gmurphy Exp $  */
 /*
 *
 * Template Numerical Toolkit (TNT)
@@ -41,8 +40,8 @@
 
 namespace TNT
 {
-  typedef TNT_SUBSCRIPT_TYPE Subscript;
-}				/* namespace TNT */
+    typedef TNT_SUBSCRIPT_TYPE Subscript;
+} /* namespace TNT */
 
 
 // () indexing in TNT means 1-offset, i.e. x(1) and A(1,1) are the

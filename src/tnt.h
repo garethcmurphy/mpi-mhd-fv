@@ -1,4 +1,3 @@
-/* $Id: tnt.h,v 1.3 2006-10-30 15:17:55 gmurphy Exp $  */
 /*
 *
 * Template Numerical Toolkit (TNT): Linear Algebra Module
@@ -39,6 +38,10 @@
 
 #include "tnt_version.h"
 #include "tnt_math_utils.h"
+
+#include "tnt_vector.h"
+#include "tnt_matrix.h"
+
 #include "tnt_array1d.h"
 #include "tnt_array2d.h"
 #include "tnt_array3d.h"
@@ -53,12 +56,11 @@
 #include "tnt_fortran_array2d_utils.h"
 #include "tnt_fortran_array3d_utils.h"
 
-#include "tnt_sparse_matrix_csr.h"
+#include "tnt_sparse_vector.h"
+#include "tnt_sparse_matrix.h"
 
 #include "tnt_stopwatch.h"
 #include "tnt_subscript.h"
-#include "tnt_vec.h"
-#include "tnt_cmat.h"
 
 
 #endif
