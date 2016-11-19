@@ -15,7 +15,7 @@ export LD = mpicxx
 export CFLAGS = -g -w -I${HOME}/local/include
 # Linker flags go here. Currently there aren't any, but if we'll switch to
 # code optimization, we might add "-s" here to strip debug info and symbols.
-export LDFLAGS =-L${HOME}/local/lib -lhdf5
+export LDFLAGS =-lhdf5 -L/opt/local/lib
 # use this command to erase files.
 export RM = /bin/rm -f
 # list of generated object files.
