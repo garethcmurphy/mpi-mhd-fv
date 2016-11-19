@@ -30,7 +30,7 @@
  *
  * */
 #include <mpi.h>
-#include <tnt.h>
+#include "tnt.h"
 #include <iostream>
 #include <iomanip>
 #include <fstream>

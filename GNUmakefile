@@ -7,7 +7,7 @@ export CC = gcc
 #export MPICH_CXX = g++
 export CXX = mpicxx
 #export CXX = ~/mpich2-1.0.3-gcc/bin/mpicxx
-export CXXFLAGS = -g -O0 -w -I${HOME}//Downloads/tnt -I${HOME}/local/include -DH5_USE_16_API
+export CXXFLAGS = -g -O0 -w -I${HOME}//Downloads/tnt -I${HOME}/local/include -DH5_USE_16_API -I/opt/local/include
 # the linker is also "gcc". It might be something else with other compilers.
 export LD = mpicxx
 #export LD = ~/mpich2-1.0.3-gcc/bin/mpicxx
