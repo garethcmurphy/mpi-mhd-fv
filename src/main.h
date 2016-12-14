@@ -7,7 +7,7 @@
 using namespace std;
 //#undef DEBUG
 
-#include "flux.h"
+
 #include "roe.h"
 #include "vanleer_fvsplit.h"
 #include "boundary.h"
@@ -15,7 +15,7 @@ using namespace std;
 #include "maxspeed.h"
 #include "maxspd.h"
 #include "initialise.h"
-#include "update.h"
 #include "global.h"
 #include "output.h"
 #include "falle.h"
+#include "tnt.h"

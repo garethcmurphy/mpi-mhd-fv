@@ -5,7 +5,7 @@
 //   \eta is a diagonal tensor or rank 2
 
 
-{
+int test() {
   double bR = 0;
   double bZ = 0;
   double bPhi = 0;
