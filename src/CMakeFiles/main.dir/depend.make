@@ -1141,8 +1141,6 @@ CMakeFiles/main.dir/parboundary.cpp.o: PhysConsts.h
 CMakeFiles/main.dir/parboundary.cpp.o: out.h
 CMakeFiles/main.dir/parboundary.cpp.o: parboundary.cpp
 CMakeFiles/main.dir/parboundary.cpp.o: parboundary.h
-CMakeFiles/main.dir/parboundary.cpp.o: physics.h
-CMakeFiles/main.dir/parboundary.cpp.o: problem.h
 CMakeFiles/main.dir/parboundary.cpp.o: tnt.h
 CMakeFiles/main.dir/parboundary.cpp.o: tnt_array1d.h
 CMakeFiles/main.dir/parboundary.cpp.o: tnt_array1d_utils.h
@@ -1204,7 +1202,6 @@ CMakeFiles/main.dir/parflux.cpp.o: ctop.h
 CMakeFiles/main.dir/parflux.cpp.o: eigenvectors.h
 CMakeFiles/main.dir/parflux.cpp.o: global.h
 CMakeFiles/main.dir/parflux.cpp.o: hlld.h
-CMakeFiles/main.dir/parflux.cpp.o: lf.h
 CMakeFiles/main.dir/parflux.cpp.o: minmod.h
 CMakeFiles/main.dir/parflux.cpp.o: out.h
 CMakeFiles/main.dir/parflux.cpp.o: parflux.cpp
@@ -1275,7 +1272,6 @@ CMakeFiles/main.dir/parsecond.cpp.o: ctop.h
 CMakeFiles/main.dir/parsecond.cpp.o: eigenvectors.h
 CMakeFiles/main.dir/parsecond.cpp.o: global.h
 CMakeFiles/main.dir/parsecond.cpp.o: hlld.h
-CMakeFiles/main.dir/parsecond.cpp.o: lf.h
 CMakeFiles/main.dir/parsecond.cpp.o: minmod.h
 CMakeFiles/main.dir/parsecond.cpp.o: out.h
 CMakeFiles/main.dir/parsecond.cpp.o: parflux.h
@@ -1350,7 +1346,6 @@ CMakeFiles/main.dir/parupdate.cpp.o: out.h
 CMakeFiles/main.dir/parupdate.cpp.o: parupdate.cpp
 CMakeFiles/main.dir/parupdate.cpp.o: parupdate.h
 CMakeFiles/main.dir/parupdate.cpp.o: physics.h
-CMakeFiles/main.dir/parupdate.cpp.o: problem.h
 CMakeFiles/main.dir/parupdate.cpp.o: tabfind.h
 CMakeFiles/main.dir/parupdate.cpp.o: tnt.h
 CMakeFiles/main.dir/parupdate.cpp.o: tnt_array1d.h
@@ -1659,7 +1654,6 @@ CMakeFiles/main.dir/zanni.cpp.o: /opt/local/include/openmpi-mp/openmpi/ompi/mpi/
 CMakeFiles/main.dir/zannisimple.cpp.o: PhysConsts.h
 CMakeFiles/main.dir/zannisimple.cpp.o: initialise_maes.h
 CMakeFiles/main.dir/zannisimple.cpp.o: out.h
-CMakeFiles/main.dir/zannisimple.cpp.o: rungekutta.h
 CMakeFiles/main.dir/zannisimple.cpp.o: tnt.h
 CMakeFiles/main.dir/zannisimple.cpp.o: tnt_array1d.h
 CMakeFiles/main.dir/zannisimple.cpp.o: tnt_array1d_utils.h

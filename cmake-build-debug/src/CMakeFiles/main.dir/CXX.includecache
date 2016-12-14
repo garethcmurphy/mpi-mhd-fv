@@ -140,12 +140,6 @@ riemann.h
 PhysConsts.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
 
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/lf.h
-global.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/global.h
-eigenvectors.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/eigenvectors.h
-
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/locate.cpp
 locate.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/locate.h
@@ -277,13 +271,9 @@ hdf5.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/hdf5.h
 mpi.h
 -
-iostream
--
 fstream
 -
 sstream
--
-cstdlib
 -
 tnt.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
@@ -291,10 +281,6 @@ out.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
 
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parboundary.cpp
-problem.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
-physics.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/physics.h
 parboundary.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parboundary.h
 
@@ -309,16 +295,12 @@ tnt.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
 out.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
-PhysConsts.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
 parflux.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parflux.h
 riemann.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/riemann.h
 hlld.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/hlld.h
-lf.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/lf.h
 problem.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
 physics.h
@@ -345,16 +327,12 @@ tnt.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
 out.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
-PhysConsts.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
 parflux.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parflux.h
 riemann.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/riemann.h
 hlld.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/hlld.h
-lf.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/lf.h
 problem.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
 physics.h
@@ -365,14 +343,10 @@ ctop.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parupdate.cpp
 parupdate.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parupdate.h
-problem.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
 physics.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/physics.h
 cooling.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/cooling.h
-iomanip
--
 
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parupdate.h
 out.h
@@ -397,8 +371,6 @@ eigenvectors.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/rungekutta.cpp
 PhysConsts.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
-iostream
--
 cmath
 -
 
@@ -421,8 +393,6 @@ global.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tabfind.cpp
 tabfind.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tabfind.h
-locate.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/locate.h
 
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tabfind.h
 global.h
@@ -647,8 +617,6 @@ out.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zannisimple.cpp
 initialise_maes.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_maes.h
-rungekutta.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/rungekutta.h
 
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zannisimple.h
 out.h

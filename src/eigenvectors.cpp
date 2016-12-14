@@ -1,3 +1,4 @@
+/* $Id: eigenvectors.cpp,v 1.3 2006-10-30 15:17:55 gmurphy Exp $  */
 #include "PhysConsts.h"
 #include "eigenvectors.h"
 
@@ -35,6 +36,11 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
     double a_star2 = 0;
     double bsquared = 0;
     double vv2 = 0;
+    double dels = 0;
+    double delf = 0;
+    double betaf = 0;
+    double betas = 0;
+    double sqrt2 = sqrt(2.0);
 
     double betay = 0;
     double betaz = 0;
@@ -109,7 +115,7 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
          *
          * */
         vt = sqrt(dvy * dvy + dvz * dvz);
-        if (vt > (0.00000001 * csound)) {
+        if (1 && vt > (0.00000001 * csound)) {
             betay = sgn(bu) * dvy / vt;
             betaz = sgn(bu) * dvz / vt;
         } else {
@@ -128,10 +134,14 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
         alphas = sqrt(abs(alphas));
     } else if (fabs(calfven - csound) > 1e-7 * csound) {
         phi = atan(bperp / (fabs(bu) - csound));
+        alphas = cos(phi / 2) + deltas;
+        alphaf = sin(phi / 2) + deltaf;
         alphas = fabs(cos(phi / 2)) + deltas;
         alphaf = fabs(sin(phi / 2)) + deltaf;
     } else {
         phi = 0.25 * pie * sgn(calfven - csound);
+        alphas = 1 / sqrt(2.);
+        alphaf = 1 / sqrt(2.);
         alphas = fabs(cos(phi));
         alphaf = fabs(sin(phi));
 
@@ -289,6 +299,9 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
             if (isnan(lev[ii][jj])) {
                 cout << "lev[" << ii << "," << jj << "] is nan " << endl;
                 exit(0);
+                if (isnan(rev[ii][jj])) {
+                    cout << "rev[" << ii << "," << jj << "] is nan " << endl;
+                    exit(0);
                 }
             }
         }
@@ -433,8 +446,8 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
         rec[2][k] = M[2][1] * rev[0][k] + M[2][2] * rev[2][k];
         rec[3][k] = M[3][0] * rev[0][k] + M[3][3] * rev[3][k];
         rec[4][k] = M[4][0] * rev[0][k] + M[4][1] * rev[1][k]
-                    + M[4][2] * rev[2][k] + M[4][3] * rev[3][k]
-                    + M[4][4] * rev[4][k] + M[4][5] * rev[5][k] + M[4][6] * rev[6][k];
+                                          + M[4][2] * rev[2][k] + M[4][3] * rev[3][k]
+                                          + M[4][4] * rev[4][k] + M[4][5] * rev[5][k] + M[4][6] * rev[6][k];
         rec[5][k] = M[5][5] * rev[5][k];
         rec[6][k] = M[6][6] * rev[6][k];
 
@@ -515,7 +528,15 @@ eigenvalues(double *sta, double *eigenval) {
     double alphaf = 0;
     double alphas = 0;
     double bperp = 0;
+    double icsound2 = 0;
+    double icsound22 = 0;
+    double phi = 0;
+    double deltas = 0;
+    double deltaf = 0;
+    double sqrt_rho = 0;
     double sqrt_rhoi = 0;
+    double pie = 3.14159;
+    double vt = 0;
 
     int k = 0;
     rho = sta[0];

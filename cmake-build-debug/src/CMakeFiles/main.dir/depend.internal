@@ -1142,8 +1142,6 @@ src/CMakeFiles/main.dir/parboundary.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parboundary.cpp
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parboundary.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/physics.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d_utils.h
@@ -1205,7 +1203,6 @@ src/CMakeFiles/main.dir/parflux.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/eigenvectors.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/global.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/hlld.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/lf.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/minmod.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parflux.cpp
@@ -1276,7 +1273,6 @@ src/CMakeFiles/main.dir/parsecond.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/eigenvectors.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/global.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/hlld.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/lf.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/minmod.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parflux.h
@@ -1351,7 +1347,6 @@ src/CMakeFiles/main.dir/parupdate.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parupdate.cpp
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parupdate.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/physics.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tabfind.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d.h
@@ -1660,7 +1655,6 @@ src/CMakeFiles/main.dir/zannisimple.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_maes.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/rungekutta.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d_utils.h

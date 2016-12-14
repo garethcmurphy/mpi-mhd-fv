@@ -1141,8 +1141,6 @@ src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/PhysConsts.h
 src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/out.h
 src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/parboundary.cpp
 src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/parboundary.h
-src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/physics.h
-src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/problem.h
 src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/tnt.h
 src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/tnt_array1d.h
 src/CMakeFiles/main.dir/parboundary.cpp.o: ../src/tnt_array1d_utils.h
@@ -1204,7 +1202,6 @@ src/CMakeFiles/main.dir/parflux.cpp.o: ../src/ctop.h
 src/CMakeFiles/main.dir/parflux.cpp.o: ../src/eigenvectors.h
 src/CMakeFiles/main.dir/parflux.cpp.o: ../src/global.h
 src/CMakeFiles/main.dir/parflux.cpp.o: ../src/hlld.h
-src/CMakeFiles/main.dir/parflux.cpp.o: ../src/lf.h
 src/CMakeFiles/main.dir/parflux.cpp.o: ../src/minmod.h
 src/CMakeFiles/main.dir/parflux.cpp.o: ../src/out.h
 src/CMakeFiles/main.dir/parflux.cpp.o: ../src/parflux.cpp
@@ -1275,7 +1272,6 @@ src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/ctop.h
 src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/eigenvectors.h
 src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/global.h
 src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/hlld.h
-src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/lf.h
 src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/minmod.h
 src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/out.h
 src/CMakeFiles/main.dir/parsecond.cpp.o: ../src/parflux.h
@@ -1350,7 +1346,6 @@ src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/out.h
 src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/parupdate.cpp
 src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/parupdate.h
 src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/physics.h
-src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/problem.h
 src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/tabfind.h
 src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/tnt.h
 src/CMakeFiles/main.dir/parupdate.cpp.o: ../src/tnt_array1d.h
@@ -1659,7 +1654,6 @@ src/CMakeFiles/main.dir/zanni.cpp.o: /opt/local/include/openmpi-mp/openmpi/ompi/
 src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/PhysConsts.h
 src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/initialise_maes.h
 src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/out.h
-src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/rungekutta.h
 src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/tnt.h
 src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/tnt_array1d.h
 src/CMakeFiles/main.dir/zannisimple.cpp.o: ../src/tnt_array1d_utils.h

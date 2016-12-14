@@ -846,6 +846,8 @@ src/main: src/CMakeFiles/main.dir/vanleer.cpp.o
 src/main: src/CMakeFiles/main.dir/build.make
 src/main: /opt/local/lib/openmpi-mp/libmpi_cxx.dylib
 src/main: /opt/local/lib/openmpi-mp/libmpi.dylib
+src/main: /opt/local/lib/libhdf5.dylib
+src/main: /opt/local/lib/libz.dylib
 src/main: src/CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gmurphy/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX executable main"
 	cd /Users/gmurphy/ClionProjects/mpi-mhd-fv/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)

@@ -26,7 +26,8 @@ add_executable(main main.cpp TwoDim.cpp parflux.cpp
 
 target_include_directories(main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(main ${MPI_CXX_LIBRARIES})
+target_link_libraries(main ${MPI_CXX_LIBRARIES} /opt/local/lib/libhdf5.dylib
+        /opt/local/lib/libz.dylib)
 
 #if (MPI_COMPILE_FLAGS)
 #    set_target_properties(main PROPERTIES
