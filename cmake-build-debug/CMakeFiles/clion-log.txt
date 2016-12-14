@@ -1,0 +1,6 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/garmu/ClionProjects/mpi-mhd-fv
+-- HDF5: Using hdf5 compiler wrapper to determine C configuration
+-- HDF5: Using hdf5 compiler wrapper to determine CXX configuration
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/garmu/ClionProjects/mpi-mhd-fv/cmake-build-debug

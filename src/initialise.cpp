@@ -2,7 +2,7 @@
 #include "initialise_maes.h"
 
 int
-initialise (char *filename, Array3D < zone > grid, int *maxstep, double *cfl)
+initialise (char *filename, TNT::Array3D < zone > grid, int *maxstep, double *cfl)
 {
   int ii = 0;
   int jj = 0;
