@@ -306,8 +306,6 @@ src/CMakeFiles/main.dir/eigenvectors.cpp.o: /opt/local/include/openmpi-mp/openmp
 src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/PhysConsts.h
 src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/emf_exchange.cpp
 src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/out.h
-src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/physics.h
-src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/problem.h
 src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/tnt.h
 src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/tnt_array1d.h
 src/CMakeFiles/main.dir/emf_exchange.cpp.o: ../src/tnt_array1d_utils.h
@@ -730,13 +728,9 @@ src/CMakeFiles/main.dir/maes.cpp.o: /opt/local/include/openmpi-mp/openmpi/ompi/m
 src/CMakeFiles/main.dir/main.cpp.o: ../src/PhysConsts.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/emf_exchange.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/initialise_blast.h
-src/CMakeFiles/main.dir/main.cpp.o: ../src/initialise_jet.h
-src/CMakeFiles/main.dir/main.cpp.o: ../src/initialise_maes.h
-src/CMakeFiles/main.dir/main.cpp.o: ../src/initialise_uniform.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/main.cpp
 src/CMakeFiles/main.dir/main.cpp.o: ../src/maxspeed.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/minmod.h
-src/CMakeFiles/main.dir/main.cpp.o: ../src/orszagtang.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/out.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/parboundary.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/parflux.h
@@ -766,8 +760,6 @@ src/CMakeFiles/main.dir/main.cpp.o: ../src/tnt_subscript.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/tnt_vector.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/tnt_version.h
 src/CMakeFiles/main.dir/main.cpp.o: ../src/vanleer.h
-src/CMakeFiles/main.dir/main.cpp.o: ../src/zanni.h
-src/CMakeFiles/main.dir/main.cpp.o: ../src/zannisimple.h
 src/CMakeFiles/main.dir/main.cpp.o: /opt/local/include/openmpi-mp/mpi.h
 src/CMakeFiles/main.dir/main.cpp.o: /opt/local/include/openmpi-mp/mpi_portable_platform.h
 src/CMakeFiles/main.dir/main.cpp.o: /opt/local/include/openmpi-mp/openmpi/ompi/mpi/cxx/comm.h

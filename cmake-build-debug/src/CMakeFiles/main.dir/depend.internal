@@ -307,8 +307,6 @@ src/CMakeFiles/main.dir/emf_exchange.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/emf_exchange.cpp
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/physics.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_array1d_utils.h
@@ -731,13 +729,9 @@ src/CMakeFiles/main.dir/main.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/PhysConsts.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/emf_exchange.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_blast.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_jet.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_maes.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_uniform.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/main.cpp
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/maxspeed.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/minmod.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/orszagtang.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parboundary.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parflux.h
@@ -767,8 +761,6 @@ src/CMakeFiles/main.dir/main.cpp.o
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_vector.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt_version.h
  /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/vanleer.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zanni.h
- /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zannisimple.h
  /opt/local/include/openmpi-mp/mpi.h
  /opt/local/include/openmpi-mp/mpi_portable_platform.h
  /opt/local/include/openmpi-mp/openmpi/ompi/mpi/cxx/comm.h

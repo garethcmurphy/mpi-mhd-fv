@@ -632,7 +632,7 @@ main(int argc, char *argv[]) {
         // Do boundaries
         parboundary(mesh, mesh, faceBx, faceBy, myNorth, mySouth, myEast, myWest,
                     myid, Cart_comm);
-        std::cout << __FUNCTION__ << " By 202,2 = " << mesh[202][2]_B_Y << std::endl;
+//        std::cout << __FUNCTION__ << " By 202,2 = " << mesh[202][2]_B_Y << std::endl;
         faceBxt = faceBx.copy();
         faceByt = faceBy.copy();
 

@@ -69,10 +69,6 @@ mpi.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/mpi.h
 out.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
-problem.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/problem.h
-physics.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/physics.h
 
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/emf_exchange.h
 problem.h
@@ -157,32 +153,14 @@ mpi.h
 -
 tnt.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/tnt.h
-iostream
--
 iomanip
--
-fstream
--
-sstream
 -
 maxspeed.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/maxspeed.h
 out.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
-initialise_maes.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_maes.h
 initialise_blast.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_blast.h
-initialise_uniform.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_uniform.h
-orszagtang.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/orszagtang.h
-zanni.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zanni.h
-zannisimple.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zannisimple.h
-initialise_jet.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_jet.h
 parboundary.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/parboundary.h
 parflux.h
@@ -235,10 +213,6 @@ initialise_uniform.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_uniform.h
 iomanip
 -
-
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/orszagtang.h
-out.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
 
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.cpp
 mpi.h
@@ -610,17 +584,9 @@ initialise_maes.h
 rungekutta.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/rungekutta.h
 
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zanni.h
-out.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
-
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zannisimple.cpp
 initialise_maes.h
 /Users/gmurphy/ClionProjects/mpi-mhd-fv/src/initialise_maes.h
-
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/zannisimple.h
-out.h
-/Users/gmurphy/ClionProjects/mpi-mhd-fv/src/out.h
 
 /opt/local/include/H5ACpublic.h
 H5public.h

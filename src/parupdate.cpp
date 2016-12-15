@@ -1074,7 +1074,7 @@ parupdate(TNT::Array2D<unk> newmesh,
         }
     }
 
-    int q1 = 202, q2 = 2;
+/*    int q1 = 202, q2 = 2;
     std::cout << "faceBx"
               << " " << q1
               << " " << q2
@@ -1088,7 +1088,7 @@ parupdate(TNT::Array2D<unk> newmesh,
               << " " << faceEx[q1][q2]
               << " " << faceEy[q1][q2 + 1]
               << " " << faceEy[q1 - 1][q2 + 1]
-              << std::endl;
+              << std::endl;*/
 
 #ifdef COOLING
     for (int i = 2; i < nx - 2; i++)

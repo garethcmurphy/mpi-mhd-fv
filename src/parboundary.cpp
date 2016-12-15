@@ -587,6 +587,6 @@ parboundary(
 
 #endif
 
-    std::cout << __FUNCTION__ << " By 202,2 = " << mesh[202][2]_B_Y << std::endl;
+//    std::cout << __FUNCTION__ << " By 202,2 = " << mesh[202][2]_B_Y << std::endl;
     return 0;
 }
