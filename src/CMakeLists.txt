@@ -16,7 +16,7 @@ include_directories(${MPI_INCLUDE_PATH})
 include_directories(${HDF5_INCLUDE_PATH})
 #link_directories(${MPI_CXX_LIBRARIES} /opt/local/lib/openmpi-gcc48/)
 
-add_executable(main main.cpp TwoDim.cpp parflux.cpp
+add_library(mhdlib TwoDim.cpp parflux.cpp
         out.cpp parboundary.cpp parupdate.cpp parflux.cpp parsecond.cpp
         maxspeed.cpp riemann.cpp hlld.cpp sgn.cpp ctop.cpp lf.cpp outhdf5.cpp
         eigenvectors.cpp emf_exchange.cpp maes.cpp blast.cpp
@@ -24,9 +24,10 @@ add_executable(main main.cpp TwoDim.cpp parflux.cpp
         orszagtang.cpp zanni.cpp zannisimple.cpp initialise_jet.cpp rungekutta.cpp minmod.cpp vanleer.cpp
         )
 
+add_executable(main main.cpp)
 target_include_directories(main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(main ${MPI_CXX_LIBRARIES} /opt/local/lib/libhdf5.dylib
+target_link_libraries(main mhdlib ${MPI_CXX_LIBRARIES} /opt/local/lib/libhdf5.dylib
         /opt/local/lib/libz.dylib)
 
 #if (MPI_COMPILE_FLAGS)
