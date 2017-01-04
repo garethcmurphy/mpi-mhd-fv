@@ -6,3 +6,6 @@ project (mhd-fv)
 # the project's entire directory structure.
 add_subdirectory (src)
 
+
+enable_testing()
+
