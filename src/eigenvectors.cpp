@@ -291,6 +291,9 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
             if (isnan(lev[ii][jj])) {
                 cout << "lev[" << ii << "," << jj << "] is nan " << endl;
                 exit(0);
+				                if (isnan(rev[ii][jj])) {
+                    cout << "rev[" << ii << "," << jj << "] is nan " << endl;
+                    exit(0);
             }
         }
     }
@@ -455,9 +458,11 @@ MI[6][6] = 1.0;
 //;
 //-----compute conserved eigenvectors;
 //;
-for (
-k = 0;
-k < 7; k++) {
+//
+//
+int k=0;
+for (k = 0; k < 7; k++) 
+{
 rec[0][k] = M[0][0] * rev[0][k];
 rec[1][k] = M[1][0] * rev[0][k] + M[1][1] * rev[1][k];
 rec[2][k] = M[2][1] * rev[0][k] + M[2][2] * rev[2][k];
@@ -545,7 +550,11 @@ eigenvalues(double *sta, double *eigenval) {
     double alphaf = 0;
     double alphas = 0;
     double bperp = 0;
+    double sqrt_rho = 0;
     double sqrt_rhoi = 0;
+	double icsound2 =0;
+	double icsound22 =0;
+		
 
     int k = 0;
     rho = sta[0];
