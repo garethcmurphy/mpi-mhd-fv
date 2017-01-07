@@ -65,8 +65,8 @@ if(NOT WIN32 OR MINGW)
     target_link_libraries(main
             ${PROJECT_LIB_NAME}
             ${MPI_CXX_LIBRARIES}
-            /opt/local/lib/libhdf5.dylib
-            /opt/local/lib/libz.dylib
+            #  /opt/local/lib/libhdf5.dylib
+            # /opt/local/lib/libz.dylib
             )
 else()
     target_link_libraries(${PROJECT_TEST_NAME}
