@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 2.8.7)
 set(PROJECT_NAME_STR mpi-mhd-fv)
 project(${PROJECT_NAME_STR} C CXX)
 find_package(MPI REQUIRED)
