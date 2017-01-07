@@ -16,8 +16,18 @@ initialise_jet(TNT::Array2D<unk> mesh,
     const int nx = mesh.dim1();
     const int ny = mesh.dim2();
     const double gammam1i = 1 / (PhysConsts::gamma - 1);
-    double rho;
+    double r02;
+    // ms is a parameter smaller than unity
+    // which then ensures an initial subsonic poloidal
+    // inflow
+    double ms = 0.3;
+    double rho, vtheta, vz, vr, bz, br, btheta;
+    // plasma beta parameter measuring the ratio of the thermal pressure to the magnetic pressure at Z = 0
+    double beta = 1.0;
+
     double pressure = 0;
+    // Disk Aspect Ratio
+    double eps = 0.1;
     double bx = 10;
     double by = 10;
 
@@ -52,8 +62,12 @@ initialise_jet(TNT::Array2D<unk> mesh,
     // Initialise face-centered B fields
     for (int ii = 0; ii < nx + 1; ii++)
         for (int jj = 0; jj < ny + 1; jj++) {
+            int gg = ii - NGC;
+            int hh = jj - NGC;
             double myx = (float) myaddress[0] + (ii - NGC);
             double myy = (float) myaddress[1] + (jj - NGC);
+            //faceBx[ii][jj] =  -sin( 2*PhysConsts::pi * myy / ymax) ;
+            //faceBy[ii][jj] =  sin( 4*PhysConsts::pi * myx / xmax);
             faceBx[ii][jj] = 0.0;
             faceBy[ii][jj] = 1.0;
         }
@@ -65,6 +79,8 @@ initialise_jet(TNT::Array2D<unk> mesh,
             by = 0.5 * (faceBy[ii][jj] + faceBy[ii][jj + 1]);
             bz = 0.0;
             rho = 0.25;
+            double myx = (float) myaddress[0] + (ii - NGC);
+            double myy = (float) myaddress[1] + (jj - NGC);
             double vx = 0.0;
             double vy = 0.0;
             double vz = 0.0;
