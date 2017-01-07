@@ -221,6 +221,7 @@ inline Fortran_Array1D<T> Fortran_Array1D<T>::subarray(int i0, int i1)
 #ifdef TNT_DEBUG
 		std::cout << "entered subarray. \n";
 #endif
+	int i = 0;
     if (i((i0 > 0) && (i1 < n_)) || (i0 <= i1))
 	{
 		Fortran_Array1D<T> X(*this);  /* create a new instance of this array. */
