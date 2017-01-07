@@ -52,19 +52,41 @@ file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
 add_executable(main ${PROJECT_SOURCE_DIR}/src/main.cpp ${SRC_FILES})
+if (APPLE)
+    target_link_libraries(${PROJECT_TEST_NAME}
+            ${PROJECT_LIB_NAME}
+            ${MPI_CXX_LIBRARIES}
+            /opt/local/lib/libhdf5.dylib
+            /opt/local/lib/libz.dylib
+            ${GTEST_LIBS_DIR}/libgtest.a
+            ${GTEST_LIBS_DIR}/libgtest_main.a
+            )
+    target_link_libraries(main
+            ${PROJECT_LIB_NAME}
+            ${MPI_CXX_LIBRARIES}
+            /opt/local/lib/libhdf5.dylib
+            /opt/local/lib/libz.dylib
+            )
+endif ()
 
-if(NOT WIN32 OR MINGW)
+if (NOT WIN32 OR MINGW OR APPLE)
     target_link_libraries(${PROJECT_TEST_NAME}
 		${PROJECT_LIB_NAME}
-		 ${MPI_CXX_LIBRARIES} 
-		  /opt/local/lib/libhdf5.dylib
-        /opt/local/lib/libz.dylib
+            ${MPI_CXX_LIBRARIES}
+            ${HDF5_CXX_LIBRARIES}
+            ${HDF5_C_LIBRARIES}
+            ${HDF5_LIBRARIES}
+            #  /opt/local/lib/libhdf5.dylib
+            # /opt/local/lib/libz.dylib
         ${GTEST_LIBS_DIR}/libgtest.a
         ${GTEST_LIBS_DIR}/libgtest_main.a
         )
     target_link_libraries(main
             ${PROJECT_LIB_NAME}
             ${MPI_CXX_LIBRARIES}
+            ${HDF5_CXX_LIBRARIES}
+            ${HDF5_C_LIBRARIES}
+            ${HDF5_LIBRARIES}
             #  /opt/local/lib/libhdf5.dylib
             # /opt/local/lib/libz.dylib
             )
