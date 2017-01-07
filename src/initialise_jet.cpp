@@ -17,11 +17,14 @@ initialise_jet(TNT::Array2D<unk> mesh,
     const int ny = mesh.dim2();
     const double gammam1i = 1 / (PhysConsts::gamma - 1);
     double r02;
-    // ms is a parameter smaller than unity
-    // which then ensures an initial subsonic poloidal
-    // inflow
+    double vx = 0.0;
+    double vy = 0.0;
+    double vz = 0.0;
     double ms = 0.3;
-    double rho, vtheta, vz, vr, bz, br, btheta;
+    double rho, vtheta, vr, bz, br, btheta;
+    double bsqr = 0.;
+    double ke = 0.;
+    double rmax2 = 0;
     // plasma beta parameter measuring the ratio of the thermal pressure to the magnetic pressure at Z = 0
     double beta = 1.0;
 
@@ -31,6 +34,10 @@ initialise_jet(TNT::Array2D<unk> mesh,
     double bx = 10;
     double by = 10;
 
+    int gg = 0;
+    int hh = 0;
+    double myx = 0;
+    double myy = 0;
 
     int coords[] = {0, 0};
 
@@ -62,10 +69,10 @@ initialise_jet(TNT::Array2D<unk> mesh,
     // Initialise face-centered B fields
     for (int ii = 0; ii < nx + 1; ii++)
         for (int jj = 0; jj < ny + 1; jj++) {
-            int gg = ii - NGC;
-            int hh = jj - NGC;
-            double myx = (float) myaddress[0] + (ii - NGC);
-            double myy = (float) myaddress[1] + (jj - NGC);
+            gg = ii - NGC;
+            hh = jj - NGC;
+            myx = (float) myaddress[0] + (ii - NGC);
+            myy = (float) myaddress[1] + (jj - NGC);
             //faceBx[ii][jj] =  -sin( 2*PhysConsts::pi * myy / ymax) ;
             //faceBy[ii][jj] =  sin( 4*PhysConsts::pi * myx / xmax);
             faceBx[ii][jj] = 0.0;
@@ -79,11 +86,11 @@ initialise_jet(TNT::Array2D<unk> mesh,
             by = 0.5 * (faceBy[ii][jj] + faceBy[ii][jj + 1]);
             bz = 0.0;
             rho = 0.25;
-            double myx = (float) myaddress[0] + (ii - NGC);
-            double myy = (float) myaddress[1] + (jj - NGC);
-            double vx = 0.0;
-            double vy = 0.0;
-            double vz = 0.0;
+            myx = (float) myaddress[0] + (ii - NGC);
+            myy = (float) myaddress[1] + (jj - NGC);
+            vx = 0.0;
+            vy = 0.0;
+            vz = 0.0;
             if (0 && myx < 40 && myy < 40) {
                 vy = 10.0;
                 if (myx > 30) {
@@ -92,9 +99,9 @@ initialise_jet(TNT::Array2D<unk> mesh,
             }
             //if (  myy<40) vy=10.0;
 
-            double bsqr = 0.5 * (bx * bx + by * by + bz * bz);
-            double ke = 0.5 * rho * (vx * vx + vy * vy + vz * vz);
-            double rmax2 = nx * nx;
+            bsqr = 0.5 * (bx * bx + by * by + bz * bz);
+            ke = 0.5 * rho * (vx * vx + vy * vy + vz * vz);
+            rmax2 = nx * nx;
             pressure = 0.5 + (1. - myx * myx / rmax2);
             pressure = 0.0004;
             mesh[ii][jj]_MASS = rho;

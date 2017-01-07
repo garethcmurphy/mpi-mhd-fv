@@ -1,12 +1,3 @@
-/* $Id: initialise_uniform.cpp,v 1.4 2006-10-30 15:17:55 gmurphy Exp $  */
-
-/*
- * CAUTION: Needs updating
- * Has not been modified for correct addressing
- * array indices at present include boundaries
- * (need dummy variables to exclude boundaries)
- */
-
 #include "initialise_uniform.h"
 #include <iomanip>
 
@@ -21,23 +12,13 @@ orszagtang(TNT::Array2D<unk> mesh,
     const int nx = mesh.dim1();
     const int ny = mesh.dim2();
     const double gammam1i = 1 / (PhysConsts::gamma - 1);
-    const double gammam1 = (PhysConsts::gamma - 1);
-    double r0, r, z, h;
-    double r2, z2, h2;
-    double r02;
-    // ms is a parameter smaller than unity
-    // which then ensures an initial subsonic poloidal
-    // inflow
-    double ms = 0.3;
-    double rho, vtheta, vz, vr, bz, br, btheta;
-    // plasma beta parameter measuring the ratio of the thermal pressure to the magnetic pressure at Z = 0
-    double beta = 1.0;
+    double rho, bz;
+    double myx = 0;
+    double myy = 0;
 
     double pressure = 0;
-    // Disk Aspect Ratio
-    double eps = 0.1;
-    double bx = 10;
-    double by = 10;
+    double bx = 0;
+    double by = 0;
 
 
     unk maxt;
@@ -71,13 +52,11 @@ orszagtang(TNT::Array2D<unk> mesh,
     std::cout << ymax << std::endl;
     *xsize = 1.0;
     *ysize = 1.0;
-    double delta_x = *xsize / xmax;
-    double delta_y = *ysize / ymax;
     // Initialise face-centered B fields
     for (int ii = 0; ii < nx + 1; ii++)
         for (int jj = 0; jj < ny + 1; jj++) {
-            double myx = (double) myaddress[0] + (ii - NGC) + 0.5;
-            double myy = (double) myaddress[1] + (jj - NGC) + 0.5;
+            myx = (double) myaddress[0] + (ii - NGC) + 0.5;
+            myy = (double) myaddress[1] + (jj - NGC) + 0.5;
             faceBx[ii][jj] = -sin(2 * PhysConsts::pi * myy / (double) ymax);
             faceBy[ii][jj] = sin(4 * PhysConsts::pi * myx / (double) xmax);
         }
@@ -86,20 +65,13 @@ orszagtang(TNT::Array2D<unk> mesh,
         for (int ii = 2; ii < nx - 2; ii++) {
             // Mass Density
 
-            int gg = ii - NGC;
-            int hh = jj - NGC;
 
             bx = 0.5 * (faceBx[ii][jj] + faceBx[ii + 1][jj]);
             by = 0.5 * (faceBy[ii][jj] + faceBy[ii][jj + 1]);
             bz = 0.0;
-            rho = 5 / (12 * PhysConsts::pi);
             rho = 25. / 9.;
             pressure = 25 / (36 * PhysConsts::pi);
             pressure = 5. / 3.;
-            //rho=0.2210485;
-            //pressure = 0.13269;
-            double myx = (float) myaddress[0] + (ii - NGC) + 0.5;
-            double myy = (float) myaddress[1] + (jj - NGC) + 0.5;
 
 
 //	std::cout << myx << " "<< myy << std::endl;
@@ -144,8 +116,6 @@ orszagtang(TNT::Array2D<unk> mesh,
     for (int jj = 2; jj < ny - 2; jj++)
         for (int ii = 2; ii < nx - 2; ii++) {
 
-            double myx = (float) myaddress[0] + (ii - NGC) + 0.5;
-            double myy = (float) myaddress[1] + (jj - NGC) + 0.5;
             double a = mesh[ii][jj]_MOMX;
             double b = -mesh[nx - ii - 1][ny - jj - 1]_MOMX;
 
@@ -178,4 +148,5 @@ orszagtang(TNT::Array2D<unk> mesh,
                   << std::endl;
     }
 
+    return 0;
 }
