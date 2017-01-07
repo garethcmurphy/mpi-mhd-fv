@@ -21,21 +21,7 @@ initialise_blast(TNT::Array2D<unk> mesh,
     const int nx = mesh.dim1();
     const int ny = mesh.dim2();
     const double gammam1i = 1 / (PhysConsts::gamma - 1);
-    const double gammam1 = (PhysConsts::gamma - 1);
-    double r0, r, z, h;
-    double r2, z2, h2;
-    double r02;
-    // ms is a parameter smaller than unity
-    // which then ensures an initial subsonic poloidal
-    // inflow
-    double ms = 0.3;
-    double rho, vtheta, vz, vr, bz, br, btheta;
-    // plasma beta parameter measuring the ratio of the thermal pressure to the magnetic pressure at Z = 0
-    double beta = 1.0;
-
     double pressure = 0;
-    // Disk Aspect Ratio
-    double eps = 0.1;
     double bx = 10;
     double by = 10;
     double sqr4piei = 0.5 / std::sqrt(PhysConsts::pi);
@@ -135,5 +121,6 @@ initialise_blast(TNT::Array2D<unk> mesh,
 
         }
 
+    return 0;
 
 }

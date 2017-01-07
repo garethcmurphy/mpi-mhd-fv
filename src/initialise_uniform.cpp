@@ -177,5 +177,6 @@ initialise_uniform(TNT::Array2D<unk> mesh,
                   mint.array[qq]
                   << std::endl;
     }
+    return 0;
 
 }
