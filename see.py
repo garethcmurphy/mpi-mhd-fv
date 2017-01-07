@@ -9,3 +9,4 @@ bx=f['Bx']
 subplot(1,2,2)
 plt.subimage(f['Bx'])
 plt.subimage(f['By'])
+
