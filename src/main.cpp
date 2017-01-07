@@ -66,7 +66,11 @@ main(int argc, char *argv[]) {
     int ny = NY;
     int ne = NE;
     int printtime = 10;
+<<<<<<< HEAD
     int maxstep = 5;
+=======
+    int maxstep = 5000;
+>>>>>>> b0fa0c0108d62ad44e91f74205cf504f3f84c5e8
 
 
     if (myid == ROOT) {
