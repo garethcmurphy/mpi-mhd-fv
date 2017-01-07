@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/main.cpp.o"
+  "CMakeFiles/main.dir/src/TwoDim.cpp.o"
+  "CMakeFiles/main.dir/src/blast.cpp.o"
+  "CMakeFiles/main.dir/src/cooling.cpp.o"
+  "CMakeFiles/main.dir/src/cpp_sort_impl.cpp.o"
+  "CMakeFiles/main.dir/src/ctop.cpp.o"
+  "CMakeFiles/main.dir/src/eigenvectors.cpp.o"
+  "CMakeFiles/main.dir/src/emf_exchange.cpp.o"
+  "CMakeFiles/main.dir/src/hlld.cpp.o"
+  "CMakeFiles/main.dir/src/initialise_jet.cpp.o"
+  "CMakeFiles/main.dir/src/initialise_uniform.cpp.o"
+  "CMakeFiles/main.dir/src/lf.cpp.o"
+  "CMakeFiles/main.dir/src/locate.cpp.o"
+  "CMakeFiles/main.dir/src/maes.cpp.o"
+  "CMakeFiles/main.dir/src/maxspeed.cpp.o"
+  "CMakeFiles/main.dir/src/minmod.cpp.o"
+  "CMakeFiles/main.dir/src/molcool.cpp.o"
+  "CMakeFiles/main.dir/src/orszagtang.cpp.o"
+  "CMakeFiles/main.dir/src/out.cpp.o"
+  "CMakeFiles/main.dir/src/outhdf5.cpp.o"
+  "CMakeFiles/main.dir/src/parboundary.cpp.o"
+  "CMakeFiles/main.dir/src/parflux.cpp.o"
+  "CMakeFiles/main.dir/src/parsecond.cpp.o"
+  "CMakeFiles/main.dir/src/parupdate.cpp.o"
+  "CMakeFiles/main.dir/src/riemann.cpp.o"
+  "CMakeFiles/main.dir/src/rungekutta.cpp.o"
+  "CMakeFiles/main.dir/src/sgn.cpp.o"
+  "CMakeFiles/main.dir/src/tabfind.cpp.o"
+  "CMakeFiles/main.dir/src/vanleer.cpp.o"
+  "CMakeFiles/main.dir/src/zanni.cpp.o"
+  "CMakeFiles/main.dir/src/zannisimple.cpp.o"
+  "main.pdb"
+  "main"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/main.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

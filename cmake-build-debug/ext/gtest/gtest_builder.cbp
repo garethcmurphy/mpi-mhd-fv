@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="gtest_builder"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\ext\;CMake Files\ext\gtest\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\ext\;CMake Files\cmake-build-debug\ext\gtest\;CMake Files\cmake-build-debug\ext\gtest\tmp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="googletest">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 googletest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/ext/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\gtest\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/ext/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\gtest\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/tmp/googletest-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\ext\gtest\tmp\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/tmp/googletest-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\ext\gtest\tmp\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mpi-mhd-fv"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\ext\;CMake Files\ext\gtest\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\ext\;CMake Files\cmake-build-debug\ext\gtest\;CMake Files\cmake-build-debug\ext\gtest\tmp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DH5_USE_16_API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/openmpi-mp"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/include"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest/googletest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DH5_USE_16_API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/openmpi-mp"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/include"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest/googletest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mpi-mhd-fv_impl">
+				<Option output="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/libmpi-mhd-fv_impl.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DH5_USE_16_API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/openmpi-mp"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/include"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest/googletest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 mpi-mhd-fv_impl"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mpi-mhd-fv_impl/fast">
+				<Option output="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/libmpi-mhd-fv_impl.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DH5_USE_16_API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/openmpi-mp"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/include"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest/googletest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 mpi-mhd-fv_impl/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mpi-mhd-fv_test">
+				<Option output="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/mpi-mhd-fv_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DH5_USE_16_API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/openmpi-mp"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/include"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest/googletest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 mpi-mhd-fv_test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mpi-mhd-fv_test/fast">
+				<Option output="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/mpi-mhd-fv_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DH5_USE_16_API"/>
+					<Add directory="/opt/local/include"/>
+					<Add directory="/opt/local/include/openmpi-mp"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/include"/>
+					<Add directory="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest/googletest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/8.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 mpi-mhd-fv_test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="googletest">
+				<Option working_dir="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 googletest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/TwoDim.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/blast.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/cooling.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/cpp_sort_impl.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/ctop.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/eigenvectors.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/emf_exchange.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/hlld.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/initialise_jet.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/initialise_uniform.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/lf.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/locate.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/maes.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/main.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/maxspeed.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/minmod.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/molcool.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/orszagtang.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/out.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/outhdf5.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/parboundary.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/parflux.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/parsecond.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/parupdate.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/riemann.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/rungekutta.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/sgn.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/tabfind.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/vanleer.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/zanni.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/src/zannisimple.cpp">
+			<Option target="main"/>
+			<Option target="mpi-mhd-fv_impl"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/test/cpp_sorter_test.cpp">
+			<Option target="mpi-mhd-fv_test"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/ext/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\gtest\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/ext/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ext\gtest\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/tmp/googletest-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\ext\gtest\tmp\"/>
+		</Unit>
+		<Unit filename="/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/tmp/googletest-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\ext\gtest\tmp\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

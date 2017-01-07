@@ -1,0 +1,51 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/googletest"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/googletest.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/googletest-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-install.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-download.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-update.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/src/googletest-stamp/googletest-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "googletest" ],
+		"name" : "googletest"
+	}
+}

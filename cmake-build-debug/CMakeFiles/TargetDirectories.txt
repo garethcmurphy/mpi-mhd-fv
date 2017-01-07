@@ -1,0 +1,10 @@
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles/test.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles/main.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles/mpi-mhd-fv_impl.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles/mpi-mhd-fv_test.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/test.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/edit_cache.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/rebuild_cache.dir
+/Users/gmurphy/Dropbox/ClionProjects/mpi-mhd-fv/cmake-build-debug/ext/gtest/CMakeFiles/googletest.dir
