@@ -49,12 +49,12 @@
 #include "tnt_array2d_utils.h"
 #include "tnt_array3d_utils.h"
 
-#include "tnt_fortran_array1d.h"
-#include "tnt_fortran_array2d.h"
-#include "tnt_fortran_array3d.h"
-#include "tnt_fortran_array1d_utils.h"
-#include "tnt_fortran_array2d_utils.h"
-#include "tnt_fortran_array3d_utils.h"
+//#include "tnt_fortran_array1d.h"
+//#include "tnt_fortran_array2d.h"
+//#include "tnt_fortran_array3d.h"
+//#include "tnt_fortran_array1d_utils.h"
+//#include "tnt_fortran_array2d_utils.h"
+//#include "tnt_fortran_array3d_utils.h"
 
 #include "tnt_sparse_vector.h"
 #include "tnt_sparse_matrix.h"
