@@ -25,22 +25,30 @@ initialise_blast(TNT::Array2D<unk> mesh,
     double bx = 10;
     double by = 10;
     double sqr4piei = 0.5 / std::sqrt(PhysConsts::pi);
+    int xmax = 0;
+    int ymax = 0;
+    double myx = 0;
+    double myy = 0;
+    double rh = 1.0;
+    double vx = 0;
+    double vy = 0.0;
+    double vz = 0.0;
+
+    float centre[2];
+
+    int coords[] = {0, 0};
+    int dims[] = {0, 0};
+
+    int myid = 99;
     bx = bx * sqr4piei;
     by = by * sqr4piei;
 
 
-    int coords[] = {0, 0};
-
-    int myid = 99;
-
     MPI_Comm_rank(MPI_COMM_WORLD, &myid);
 
     MPI_Cart_coords(new_comm, myid, ndims, coords);
-    int dims[] = {0, 0};
     MPI_Cartdim_get(new_comm, dims);
 
-    int xmax = 0;
-    int ymax = 0;
     MPI_Allreduce(coords, &xmax, 1, MPI_INT, MPI_MAX, new_comm);
     MPI_Allreduce(coords + 1, &ymax, 1, MPI_INT, MPI_MAX, new_comm);
     xmax++;
@@ -80,10 +88,6 @@ initialise_blast(TNT::Array2D<unk> mesh,
             mesh[ii][jj]_B_Z = 0.0;
             mesh[ii][jj].temperature = myid;
 
-            float myx = 0;
-            float myy = 0;
-
-            float centre[2];
             centre[0] = xmax * (nx - 2 * NGC) / 2 + 10;
             centre[1] = ymax * (ny - 2 * NGC) / 2 + 10;
 
@@ -101,10 +105,6 @@ initialise_blast(TNT::Array2D<unk> mesh,
             if (dist < 0.1 * nx)
 //          if (sqrt ( (myy * myy)) < 50.0)
             {
-                double rh = 1.0;
-                double vx = 0;
-                double vy = 0.0;
-                double vz = 0.0;
 
                 mesh[ii][jj]_MASS = rh;
                 mesh[ii][jj]_MOMX = vx;
