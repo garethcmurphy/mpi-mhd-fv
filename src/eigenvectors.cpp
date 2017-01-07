@@ -1,3 +1,4 @@
+/* $Id: eigenvectors.cpp,v 1.3 2006-10-30 15:17:55 gmurphy Exp $  */
 #include "PhysConsts.h"
 #include "eigenvectors.h"
 
@@ -35,6 +36,11 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
     double a_star2 = 0;
     double bsquared = 0;
     double vv2 = 0;
+    double dels = 0;
+    double delf = 0;
+    double betaf = 0;
+    double betas = 0;
+    double sqrt2 = sqrt(2.0);
 
     double betay = 0;
     double betaz = 0;
@@ -51,11 +57,9 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
     double pie = 3.14159;
     double vt = 0;
 
-    double MI[7][ 7];
-    double M[7][7];
-
-
-
+    int k = 0;
+    Array2D<double> MI(7, 7);
+    Array2D<double> M(7, 7);
     rho = sta[0];
     rhoi = 1 / rho;
     sqrt_rho = sqrt(rho);
@@ -111,7 +115,7 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
          *
          * */
         vt = sqrt(dvy * dvy + dvz * dvz);
-        if (vt > (0.00000001 * csound)) {
+        if (1 && vt > (0.00000001 * csound)) {
             betay = sgn(bu) * dvy / vt;
             betaz = sgn(bu) * dvz / vt;
         } else {
@@ -130,10 +134,14 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
         alphas = sqrt(abs(alphas));
     } else if (fabs(calfven - csound) > 1e-7 * csound) {
         phi = atan(bperp / (fabs(bu) - csound));
+        alphas = cos(phi / 2) + deltas;
+        alphaf = sin(phi / 2) + deltaf;
         alphas = fabs(cos(phi / 2)) + deltas;
         alphaf = fabs(sin(phi / 2)) + deltaf;
     } else {
         phi = 0.25 * pie * sgn(calfven - csound);
+        alphas = 1 / sqrt(2.);
+        alphaf = 1 / sqrt(2.);
         alphas = fabs(cos(phi));
         alphaf = fabs(sin(phi));
 
@@ -291,20 +299,20 @@ eigenvectors(double *sta, double **lev, double **rev, double **lec,
             if (isnan(lev[ii][jj])) {
                 cout << "lev[" << ii << "," << jj << "] is nan " << endl;
                 exit(0);
-				                if (isnan(rev[ii][jj])) {
+                if (isnan(rev[ii][jj])) {
                     cout << "rev[" << ii << "," << jj << "] is nan " << endl;
                     exit(0);
+                }
             }
         }
     }
-}
 
 
 //-----Transform primitive eigenvectors to conservative eigen vectors;
 //     See Hirsch Vol. II p.147 eqns.[16.2.47];
 //;
 
-M[0][0] = 1.0;
+    M[0][0] = 1.0;
 //       M[1][2] = 0.0;
 //       M[1][3] = 0.0;
 //       M[1][4] = 0.0;
@@ -313,10 +321,8 @@ M[0][0] = 1.0;
 //       M[1][7] = 0.0;
 
 
-M[1][0] =
-u;
-M[1][1] =
-rho;
+    M[1][0] = u;
+    M[1][1] = rho;
 //       M[2][3] = 0.0;
 //       M[2][4] = 0.0;
 //       M[2][5] = 0.0;
@@ -324,42 +330,31 @@ rho;
 //       M[2][7] = 0.0;
 
 
-M[2][0] =
-v;
+    M[2][0] = v;
 //       M[3][2] = 0.0;
-M[2][2] =
-rho;
+    M[2][2] = rho;
 //       M[3][4] = 0.0;
 //       M[3][5] = 0.0;
 //       M[3][6] = 0.0;
 //       M[3][7] = 0.0;
 
 
-M[3][0] =
-w;
+    M[3][0] = w;
 //       M[4][2] = 0.0;
 //       M[4][3] = 0.0;
-M[3][3] =
-rho;
+    M[3][3] = rho;
 //       M[4][5] = 0.0;
 //       M[4][6] = 0.0;
 //       M[4][7] = 0.0;
 
 
-M[4][0] = 0.5 *
-vv2;
-M[4][1] =
-rho *u;
-M[4][2] =
-rho *v;
-M[4][3] =
-rho *w;
-M[4][4] =
-gammam1i;
-M[4][5] =
-BBv;
-M[4][6] =
-BBw;
+    M[4][0] = 0.5 * vv2;
+    M[4][1] = rho * u;
+    M[4][2] = rho * v;
+    M[4][3] = rho * w;
+    M[4][4] = gammam1i;
+    M[4][5] = BBv;
+    M[4][6] = BBw;
 
 
 //       M[6][1] = 0.0;
@@ -367,7 +362,7 @@ BBw;
 //       M[6][3] = 0.0;
 //       M[6][4] = 0.0;
 //       M[6][5] = 0.0;
-M[5][5] = 1.0;
+    M[5][5] = 1.0;
 //       M[6][7] = 0.0;
 
 
@@ -377,41 +372,33 @@ M[5][5] = 1.0;
 //       M[7][4] = 0.0;
 //       M[7][5] = 0.0;
 //       M[7][6] = 0.0;
-M[6][6] = 1.0;
+    M[6][6] = 1.0;
 //;
 
-MI[0][0] = 1.0;
-MI[1][0] = -
-rhoi *u;
-MI[2][0] = -
-rhoi *v;
-MI[3][0] = -
-rhoi *w;
+    MI[0][0] = 1.0;
+    MI[1][0] = -rhoi * u;
+    MI[2][0] = -rhoi * v;
+    MI[3][0] = -rhoi * w;
 
-MI[4][0] = 0.5 *
-gammam1 *vv2;
+    MI[4][0] = 0.5 * gammam1 * vv2;
 //       MI[6][1] = 0.0;
 //       MI[7][1] = 0.0;
 
 
 //       MI[1][2] = 0.0;
-MI[1][1] =
-rhoi;
+    MI[1][1] = rhoi;
 //       MI[3][2] = 0.0;
 //       MI[4][2] = 0.0;
-MI[4][1] = -
-gammam1 *u;
+    MI[4][1] = -gammam1 * u;
 //       MI[6][2] = 0.0;
 //       MI[7][2] = 0.0;
 
 
 //       MI[1][3] = 0.0;
 //       MI[2][3] = 0.0;
-MI[2][2] =
-rhoi;
+    MI[2][2] = rhoi;
 //       MI[4][3] = 0.0;
-MI[4][2] = -
-gammam1 *v;
+    MI[4][2] = -gammam1 * v;
 //       MI[6][3] = 0.0;
 //       MI[7][3] = 0.0;
 
@@ -419,10 +406,8 @@ gammam1 *v;
 //       MI[1][4] = 0.0;
 //       MI[2][4] = 0.0;
 //       MI[3][4] = 0.0;
-MI[3][3] =
-rhoi;
-MI[4][3] = -
-gammam1 *w;
+    MI[3][3] = rhoi;
+    MI[4][3] = -gammam1 * w;
 //       MI[6][4] = 0.0;
 //       MI[7][4] = 0.0;
 
@@ -431,8 +416,7 @@ gammam1 *w;
 //       MI[2][5] = 0.0;
 //       MI[3][5] = 0.0;
 //       MI[4][5] = 0.0;
-MI[4][4] =
-gammam1;
+    MI[4][4] = gammam1;
 //       MI[6][5] = 0.0;
 //       MI[7][5] = 0.0;
 
@@ -441,9 +425,8 @@ gammam1;
 //       MI[2][6] = 0.0;
 //       MI[3][6] = 0.0;
 //       MI[4][6] = 0.0;
-MI[4][5] = -
-gammam1 *BBv;
-MI[5][5] = 1.0;
+    MI[4][5] = -gammam1 * BBv;
+    MI[5][5] = 1.0;
 //       MI[7][6] = 0.0;
 
 
@@ -451,61 +434,56 @@ MI[5][5] = 1.0;
 //       MI[2][7] = 0.0;
 //       MI[3][7] = 0.0;
 //       MI[4][7] = 0.0;
-MI[4][6] = -
-gammam1 *BBw;
+    MI[4][6] = -gammam1 * BBw;
 //       MI[6][7] = 0.0;
-MI[6][6] = 1.0;
+    MI[6][6] = 1.0;
 //;
 //-----compute conserved eigenvectors;
 //;
-//
-//
-int k=0;
-for (k = 0; k < 7; k++) 
-{
-rec[0][k] = M[0][0] * rev[0][k];
-rec[1][k] = M[1][0] * rev[0][k] + M[1][1] * rev[1][k];
-rec[2][k] = M[2][1] * rev[0][k] + M[2][2] * rev[2][k];
-rec[3][k] = M[3][0] * rev[0][k] + M[3][3] * rev[3][k];
-rec[4][k] = M[4][0] * rev[0][k] + M[4][1] * rev[1][k]
-+ M[4][2] * rev[2][k] + M[4][3] * rev[3][k]
-+ M[4][4] * rev[4][k] + M[4][5] * rev[5][k] + M[4][6] * rev[6][k];
-rec[5][k] = M[5][5] * rev[5][k];
-rec[6][k] = M[6][6] * rev[6][k];
+    for (k = 0; k < 7; k++) {
+        rec[0][k] = M[0][0] * rev[0][k];
+        rec[1][k] = M[1][0] * rev[0][k] + M[1][1] * rev[1][k];
+        rec[2][k] = M[2][1] * rev[0][k] + M[2][2] * rev[2][k];
+        rec[3][k] = M[3][0] * rev[0][k] + M[3][3] * rev[3][k];
+        rec[4][k] = M[4][0] * rev[0][k] + M[4][1] * rev[1][k]
+                                          + M[4][2] * rev[2][k] + M[4][3] * rev[3][k]
+                                          + M[4][4] * rev[4][k] + M[4][5] * rev[5][k] + M[4][6] * rev[6][k];
+        rec[5][k] = M[5][5] * rev[5][k];
+        rec[6][k] = M[6][6] * rev[6][k];
 
 
-/*
-   lec[k][0] = lev[k][0] * MI[0][0] + lev[k][1] * MI[1][0] + lev[k][2] * MI[2][0] + lev[k][3] * MI[3][0] + lev[k][4] * MI[4][0];
-   lec[k][1] = lev[k][1] * MI[1][1] + lev[k][4] * MI[4][1];
-   lec[k][2] = lev[k][2] * MI[2][2] + lev[k][4] * MI[4][2];
-   lec[k][3] = lev[k][3] * MI[3][3] + lev[k][4] * MI[4][3];
-   lec[k][4] = lev[k][4] * MI[4][4];
-   lec[k][5] = lev[k][4] * MI[4][5] + lev[k][5] * MI[5][5];
-   lec[k][6] = lev[k][4] * MI[4][6] + lev[k][6] * MI[6][6];
+        /*
+           lec[k][0] = lev[k][0] * MI[0][0] + lev[k][1] * MI[1][0] + lev[k][2] * MI[2][0] + lev[k][3] * MI[3][0] + lev[k][4] * MI[4][0];
+           lec[k][1] = lev[k][1] * MI[1][1] + lev[k][4] * MI[4][1];
+           lec[k][2] = lev[k][2] * MI[2][2] + lev[k][4] * MI[4][2];
+           lec[k][3] = lev[k][3] * MI[3][3] + lev[k][4] * MI[4][3];
+           lec[k][4] = lev[k][4] * MI[4][4];
+           lec[k][5] = lev[k][4] * MI[4][5] + lev[k][5] * MI[5][5];
+           lec[k][6] = lev[k][4] * MI[4][6] + lev[k][6] * MI[6][6];
 
-   lec[0][k] = lev[k][0] * MI[0][0] + lev[k][1] * MI[1][0] + lev[k][2] * MI[2][0] + lev[k][3] * MI[3][0] + lev[k][4] * MI[4][0];
-   lec[1][k] = lev[k][1] * MI[1][1] + lev[k][4] * MI[4][1];
-   lec[2][k] = lev[k][2] * MI[2][2] + lev[k][4] * MI[4][2];
-   lec[3][k] = lev[k][3] * MI[3][3] + lev[k][4] * MI[4][3];
-   lec[4][k] = lev[k][4] * MI[4][4];
-   lec[5][k] = lev[k][4] * MI[4][5] + lev[k][5] * MI[5][5];
-   lec[6][k] = lev[k][4] * MI[4][6] + lev[k][6] * MI[6][6];
- */
-
-
-lec[0][k] =
-lev[0][k] * MI[0][0] + lev[1][k] * MI[1][0] + lev[2][k] * MI[2][0] +
-lev[3][k] * MI[3][0] + lev[4][k] * MI[4][0];
-lec[1][k] = lev[1][k] * MI[1][1] + lev[4][k] * MI[4][1];
-lec[2][k] = lev[2][k] * MI[2][2] + lev[4][k] * MI[4][2];
-lec[3][k] = lev[3][k] * MI[3][3] + lev[4][k] * MI[4][3];
-lec[4][k] = lev[4][k] * MI[4][4];
-lec[5][k] = lev[4][k] * MI[4][5] + lev[5][k] * MI[5][5];
-lec[6][k] = lev[4][k] * MI[4][6] + lev[6][k] * MI[6][6];
-}
+           lec[0][k] = lev[k][0] * MI[0][0] + lev[k][1] * MI[1][0] + lev[k][2] * MI[2][0] + lev[k][3] * MI[3][0] + lev[k][4] * MI[4][0];
+           lec[1][k] = lev[k][1] * MI[1][1] + lev[k][4] * MI[4][1];
+           lec[2][k] = lev[k][2] * MI[2][2] + lev[k][4] * MI[4][2];
+           lec[3][k] = lev[k][3] * MI[3][3] + lev[k][4] * MI[4][3];
+           lec[4][k] = lev[k][4] * MI[4][4];
+           lec[5][k] = lev[k][4] * MI[4][5] + lev[k][5] * MI[5][5];
+           lec[6][k] = lev[k][4] * MI[4][6] + lev[k][6] * MI[6][6];
+         */
 
 
-return 0;
+        lec[0][k] =
+                lev[0][k] * MI[0][0] + lev[1][k] * MI[1][0] + lev[2][k] * MI[2][0] +
+                lev[3][k] * MI[3][0] + lev[4][k] * MI[4][0];
+        lec[1][k] = lev[1][k] * MI[1][1] + lev[4][k] * MI[4][1];
+        lec[2][k] = lev[2][k] * MI[2][2] + lev[4][k] * MI[4][2];
+        lec[3][k] = lev[3][k] * MI[3][3] + lev[4][k] * MI[4][3];
+        lec[4][k] = lev[4][k] * MI[4][4];
+        lec[5][k] = lev[4][k] * MI[4][5] + lev[5][k] * MI[5][5];
+        lec[6][k] = lev[4][k] * MI[4][6] + lev[6][k] * MI[6][6];
+    }
+
+
+    return 0;
 }
 
 int
@@ -550,11 +528,15 @@ eigenvalues(double *sta, double *eigenval) {
     double alphaf = 0;
     double alphas = 0;
     double bperp = 0;
+    double icsound2 = 0;
+    double icsound22 = 0;
+    double phi = 0;
+    double deltas = 0;
+    double deltaf = 0;
     double sqrt_rho = 0;
     double sqrt_rhoi = 0;
-	double icsound2 =0;
-	double icsound22 =0;
-		
+    double pie = 3.14159;
+    double vt = 0;
 
     int k = 0;
     rho = sta[0];

@@ -65,7 +65,7 @@ out (int numprocs, int myid, MPI_Comm new_comm, int ndims, int *dim_size,
   MPI_Datatype types_str[3] = { MPI_INT, MPI_DOUBLE, MPI_UB };
 
 
-  MPI_Type_struct (3, blks, displacements, types_str, &mycolumn);
+    MPI_Type_create_struct (3, blks, displacements, types_str, &mycolumn);
   MPI_Type_commit (&mycolumn);
 
 
