@@ -1,7 +1,5 @@
-/* $Id: hlld.cpp,v 1.4 2006-10-30 15:17:55 gmurphy Exp $  */
 #include "riemann.h"
 #include "PhysConsts.h"
-//#define DEBUG_HLLD
 #define WHENTOPRINT ul != ur
 #define WHENTOPRINT 1
 

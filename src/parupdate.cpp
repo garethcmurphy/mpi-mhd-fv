@@ -46,6 +46,7 @@ getpres(double *array) {
     double pressure = et - ke - 0.5 * bsquared;
     pressure = pressure * (gammam1);
 
+    return 0;
 }
 
 

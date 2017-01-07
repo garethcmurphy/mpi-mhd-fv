@@ -1,4 +1,3 @@
-/* $Id: emf_exchange.cpp,v 1.5 2006-10-30 15:17:55 gmurphy Exp $  */
 
 #include "mpi.h"
 #include "out.h"

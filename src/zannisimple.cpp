@@ -441,7 +441,6 @@ zannisimple(TNT::Array2D<unk> mesh,
             if (diskpressure > atmospherepressure) {
                 rho = diskdensity;
                 pressure = diskpressure;
-                vtheta = vtheta;
             } else {
                 rho = atmosphererho;
                 pressure = atmospherepressure;
