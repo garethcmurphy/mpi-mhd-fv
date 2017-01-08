@@ -1,45 +1,29 @@
 
-/*
- * CAUTION: Needs updating
- * Has not been modified for correct addressing
- * array indices at present include boundaries
- * (need dummy variables to exclude boundaries)
- */
-
 #include "initialise_blast.h"
 
-int
-initialise_blast(TNT::Array2D<unk> mesh,
-                 TNT::Array2D<double> faceBx,
-                 TNT::Array2D<double> faceBy,
-                 MPI_Comm new_comm, int ndims, int *dim_size,
-                 double *xsize, double *ysize) {
 
-    *xsize = 1.0;
-    *ysize = 1.0;
-    std::cout << "Initialise Blast Problem" << std::endl;
-    const int nx = mesh.dim1();
-    const int ny = mesh.dim2();
-    const double gammam1i = 1 / (PhysConsts::gamma - 1);
-    double pressure = 0;
-    double bx = 10;
-    double by = 10;
-    double sqr4piei = 0.5 / std::sqrt(PhysConsts::pi);
-    int xmax = 0;
-    int ymax = 0;
-    double myx = 0;
-    double myy = 0;
-    double rh = 1.0;
-    double vx = 0;
-    double vy = 0.0;
-    double vz = 0.0;
+int Blast::initial_condition(TNT::Array2D<unk> mesh,
+                             TNT::Array2D<double> faceBx,
+                             TNT::Array2D<double> faceBy,
+                             MPI_Comm new_comm, int ndims) {
 
-    float centre[2];
+    nx = mesh.dim1();
+    ny = mesh.dim2();
+    gammam1i = 1 / (PhysConsts::gamma - 1);
+    pressure = 0;
+    bx = 10;
+    by = 10;
+    sqr4piei = 0.5 / std::sqrt(PhysConsts::pi);
+    myx = 0;
+    myy = 0;
+    rh = 1.0;
+    vx = 0;
+    vy = 0.0;
+    vz = 0.0;
+    myid = 99;
+    xmax = 0;
+    ymax = 0;
 
-    int coords[] = {0, 0};
-    int dims[] = {0, 0};
-
-    int myid = 99;
     bx = bx * sqr4piei;
     by = by * sqr4piei;
 
@@ -69,7 +53,6 @@ initialise_blast(TNT::Array2D<unk> mesh,
 
     for (int jj = 0; jj < ny; jj++)
         for (int ii = 0; ii < nx; ii++) {
-            // Mass Density
 
             int gg = ii - NGC;
             int hh = jj - NGC;
@@ -97,14 +80,8 @@ initialise_blast(TNT::Array2D<unk> mesh,
 
             double dist = 0;
             dist = sqrt((myx * myx) + (myy * myy));
-/* myx = (float) myaddress[0] + gg ;
-	myy = (float) myaddress[1] + hh ;
-	dist= sqrt ((myx * myx));
-	*/
 
-            if (dist < 0.1 * nx)
-//          if (sqrt ( (myy * myy)) < 50.0)
-            {
+            if (dist < 0.1 * nx) {
 
                 mesh[ii][jj]_MASS = rh;
                 mesh[ii][jj]_MOMX = vx;
@@ -121,6 +98,7 @@ initialise_blast(TNT::Array2D<unk> mesh,
 
         }
 
-    return 0;
 
-}
+    return 0;
+};
+

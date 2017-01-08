@@ -61,12 +61,17 @@ main(int argc, char *argv[]) {
 
     std::ifstream init;
 
-    double cfl = 0.40;
     int nx = NX;
     int ny = NY;
     int ne = NE;
     int printtime = 10;
     int maxstep = 5;
+    double myx = 0;
+    double myy = 0;
+    double del;
+    double delta_t = 0;
+    double cfl = 0.40;
+    double idx, idy;
 
 
     if (myid == ROOT) {
@@ -90,7 +95,6 @@ main(int argc, char *argv[]) {
     MPI_Bcast(&ny, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&maxstep, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    double rgi = 0;
     double gammag = PhysConsts::gamma;
     double gammam1 = gammag - 1.;
     double gammam1i = 1. / gammam1;
@@ -133,23 +137,18 @@ main(int argc, char *argv[]) {
     unk test;
     unk maxvar;
     unk minvar;
-    //MPI_Aint disps[3] = { 0, (int) test.array - (int) &test.temperature, sizeof (test) };	/* guessing... */
-    MPI_Aint disps[3];
-    MPI_Aint addr[3];
+    MPI_Aint disps[2];
+    MPI_Aint addr[2];
     //MPI_Get_Address (test.array, &addr[0]  );
-    disps[0] = 0;
-    disps[1] = sizeof(double);
-    //disps[1]= test.array -  &test.temperature;
-    disps[2] = sizeof(test);    /* guessing... */
-    int blks[3] = {1, ne, 1};
-    MPI_Datatype types[3] = {MPI_INT, MPI_DOUBLE, MPI_UB};
-    int testint = 0;
+    disps[0] = sizeof(double);
+    disps[1] = sizeof(test);    /* guessing... */
+    int blks[2] = {1, ne};
+    MPI_Datatype types[2] = {MPI_INT, MPI_DOUBLE};
     int tstep = 0;
     std::ofstream outfile;
     int rc = 0;
     double maxspeed_ = 0;
     double tmpbuf = 0;
-    double pressure = 0;
     double rr, px, py, pz, et, ri, vx, vy, vz, ke, p, ptot;
     double bx, by, bz, b2, vdotb;
     MPI_Comm old_comm, Cart_comm;
@@ -173,7 +172,7 @@ main(int argc, char *argv[]) {
      */
 
 
-    MPI_Type_struct(3, blks, disps, types, &MPI_unk_type);
+    MPI_Type_create_struct(2, blks, disps, types, &MPI_unk_type);
     MPI_Type_commit(&MPI_unk_type);
 
 
@@ -245,8 +244,6 @@ main(int argc, char *argv[]) {
     printf("Process %d on %s\n", myid, processor_name);
     MPI_Barrier(MPI_COMM_WORLD);
 
-    float myx = 0;
-    float myy = 0;
 
 // Initialisation
     float test_float;
@@ -268,9 +265,15 @@ main(int argc, char *argv[]) {
 #endif
 
 #ifdef BLAST
-    initialise_blast(mesh,
-                     faceBx,
-                     faceBy, Cart_comm, ndims, dim_size, &xsize, &ysize);
+//    initialise_blast(mesh,
+//                     faceBx,
+//                     faceBy, Cart_comm, ndims, dim_size, &xsize, &ysize);
+    Blast mysim;
+    mysim.initial_condition(mesh,
+                            faceBx,
+                            faceBy, Cart_comm, ndims);
+
+
 #endif
 #ifdef ORSZAGTANG
     orszagtang (mesh,
@@ -282,9 +285,6 @@ main(int argc, char *argv[]) {
             faceBx, faceBy, Cart_comm, ndims, dim_size, &xsize, &ysize);
 #endif
 
-    newmesh = mesh.copy();
-    delta_x = xsize / (dim_size[0] * (nx - 2 * NGC));
-    delta_y = ysize / (dim_size[1] * (ny - 2 * NGC));
 
     newmesh = mesh.copy();
     delta_x = xsize / (dim_size[0] * (nx - 2 * NGC));
@@ -393,12 +393,10 @@ main(int argc, char *argv[]) {
 
     rank_above = myid + 1;
     if (rank_above > numprocs - 1) {
-        rank_above = 0;
         rank_above = MPI_PROC_NULL;
     }
     rank_below = myid - 1;
     if (rank_below < 0) {
-        rank_below = numprocs - 1;
         rank_below = MPI_PROC_NULL;
     }
 
@@ -425,8 +423,8 @@ main(int argc, char *argv[]) {
     outhdf5(numprocs, myid, Cart_comm, ndims, dim_size, mesh, arr_size, tstep);
 
     TNT::Array2D<double> divb(nx, ny);
-    double idx = 1.0 / delta_x;
-    double idy = 1.0 / delta_y;
+    idx = 1.0 / delta_x;
+    idy = 1.0 / delta_y;
 
 
 
@@ -447,7 +445,7 @@ main(int argc, char *argv[]) {
                         idy * (faceBy[i][j + 1] - faceBy[i][j]);
 
 #ifdef CYLINDRICAL
-                double myx = (double) myaddress[0] + (i - NGC);
+                myx = (double) myaddress[0] + (i - NGC);
                 double dri = 2.0 / (2 * myx + 1);
                 divb[i][j] = idx * dri * ((myx + 1.0) * faceBx[i + 1][j] - (myx ) * faceBx[i][j]) + idy * (faceBy[i][j + 1] - faceBy[i][j]);
                 //divb[i][j] = idx * dri * ((myx + 0.5) * faceBx[i + 1][j] - (myx -0.5) * faceBx[i][j]) + idy * (faceBy[i][j + 1] - faceBy[i][j]);
@@ -475,10 +473,6 @@ main(int argc, char *argv[]) {
             for (jj = 2; jj < ny - 2; jj++) {
                 mesh[ii][jj]_B_X = 0.5 * (faceBx[ii + 1][jj] + faceBx[ii][jj]);
 #ifdef CYLINDRICAL
-                //double myx = myaddress[0] + (ii - NGC);
-                //rgi = (myx * myx + myx + 1.0 / 3.0) * delta_x / (myx + 0.5);
-               //gg rgi = (myx * myx - myx + 1.0 / 3.0) * delta_x / (myx - 0.5);
-                //mesh[ii][jj] _B_X = faceBx[ii + 1][jj] - idx * ((ii + 1) * delta_x - rgi) * (faceBx[ii + 1][jj] - faceBx[ii][jj]);
                 mesh[ii][jj] _B_X = 0.5 * (faceBx[ii + 1][jj] + faceBx[ii][jj]);
 #endif
                 mesh[ii][jj]_B_Y = 0.5 * (faceBy[ii][jj + 1] + faceBy[ii][jj]);
@@ -525,12 +519,9 @@ main(int argc, char *argv[]) {
             }
         }
 
-        double del;
 
         del = cfl / maxspeed_;
-        //del=del*del;
-        double delta_t = del * delta_x;
-        double dtodx = del;
+        delta_t = del * delta_x;
         time = time + delta_t;
 
         if (std::isnan(del)) {
@@ -588,10 +579,6 @@ main(int argc, char *argv[]) {
            {
            halfmesh[ii][jj] _B_X = 0.5 * (faceBxt[ii + 1][jj] + faceBxt[ii][jj]);
 #ifdef CYLINDRICAL
-          //double myx = myaddress[0] + (ii - NGC);
-          //rgi = (myx * myx + myx + 1.0 / 3.0) * delta_x / (myx + 0.5);
-          //gg rgi = (myx * myx - myx + 1.0 / 3.0) * delta_x / (myx - 0.5);
-          //halfmesh[ii][jj] _B_X = faceBxt[ii + 1][jj] - idx * ((ii + 1) * delta_x - rgi) * (faceBxt[ii + 1][jj] - faceBxt[ii][jj]);
            halfmesh[ii][jj] _B_X = 0.5 * (faceBxt[ii + 1][jj] + faceBxt[ii][jj]);
 #endif
 
@@ -699,10 +686,6 @@ main(int argc, char *argv[]) {
                 for (jj = 2; jj < ny - 2; jj++) {
                     outmesh[ii][jj]_B_X = 0.5 * (faceBx[ii + 1][jj] + faceBx[ii][jj]);
 #ifdef CYLINDRICAL
-                    //double myx = myaddress[0] + (ii - NGC);
-                    //rgi = (myx * myx + myx + 1.0 / 3.0) * delta_x / (myx + 0.5);
-                    //gg rgi = (myx * myx - myx + 1.0 / 3.0) * delta_x / (myx - 0.5);
-                    //outmesh[ii][jj] _B_X = faceBx[ii + 1][jj] - idx * ((ii + 1) * delta_x - rgi) * (faceBx[ii + 1][jj] - faceBx[ii][jj]);
                     outmesh[ii][jj] _B_X = 0.5 * (faceBx[ii + 1][jj] + faceBx[ii][jj]);
 #endif
                     outmesh[ii][jj]_B_Y =

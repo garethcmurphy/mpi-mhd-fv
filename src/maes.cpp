@@ -71,10 +71,10 @@ initialise_maes(TNT::Array2D<unk> mesh,
         for (int ii = 0; ii < nx + 1; ii++) {
             //
             int gg = std::max(ii - NGC, 0);
-            float myx = 0;
-            float myy = 0;
-            myx = (float) myaddress[0] + gg;
-            float delta_x = *xsize / ((nx - 2 * NGC) * xmax);
+            double myx = 0;
+            double myy = 0;
+            myx = (double) myaddress[0] + gg;
+            double delta_x = *xsize / ((nx - 2 * NGC) * xmax);
             //std::cout << delta_x << " " <<delta_y << std::endl;
             r = (40.0 * myx) / (dim_size[0] * nx) + delta_x * 0.5;
             h = eps * r;
@@ -116,12 +116,12 @@ initialise_maes(TNT::Array2D<unk> mesh,
             // Mass Density
             int gg = ii - NGC;
             int hh = jj - NGC;
-            float myx = 0;
-            float myy = 0;
-            myx = (float) myaddress[0] + gg;
-            myy = (float) myaddress[1] + hh;
-            float delta_x = *xsize / ((nx - 2 * NGC) * xmax);
-            float delta_y = *ysize / ((ny - 2 * NGC) * ymax);
+            double myx = 0;
+            double myy = 0;
+            myx = (double) myaddress[0] + gg;
+            myy = (double) myaddress[1] + hh;
+            double delta_x = *xsize / ((nx - 2 * NGC) * xmax);
+            double delta_y = *ysize / ((ny - 2 * NGC) * ymax);
             //std::cout << delta_x << " " <<delta_y << std::endl;
             z = (80.0 * myy) / (dim_size[1] * ny) + delta_y * 0.5;
             r = (40.0 * myx) / (dim_size[0] * nx) + delta_x * 0.5;
@@ -235,5 +235,6 @@ initialise_maes(TNT::Array2D<unk> mesh,
     //
 
 
+    return 0;
 
 }

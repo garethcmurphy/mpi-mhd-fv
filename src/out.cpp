@@ -5,10 +5,8 @@
 
 
 #include <mpi.h>
-#include <iostream>
 #include <fstream>
 #include <sstream>
-#include <cstdlib>
 #include "tnt.h"
 #include "out.h"
 
@@ -57,12 +55,11 @@ out (int numprocs, int myid, MPI_Comm new_comm, int ndims, int *dim_size,
 
   unk test;
   //MPI_Aint displacements[3] = { 0, (int) test.array - (int) &test.temperature, sizeof (test) };	/* guessing... */
-  MPI_Aint displacements[3];
-  displacements[0]=0;
-  displacements[1]=sizeof(double);
-  displacements[2]=sizeof(test);
-  int blks[3] = { 1, ne, 1 };
-  MPI_Datatype types_str[3] = { MPI_INT, MPI_DOUBLE, MPI_UB };
+    MPI_Aint displacements[2];
+    displacements[0] = sizeof(double);
+    displacements[1] = sizeof(test);
+    int blks[2] = {1, ne};
+    MPI_Datatype types_str[2] = {MPI_INT, MPI_DOUBLE};
 
 
     MPI_Type_create_struct (3, blks, displacements, types_str, &mycolumn);
@@ -113,24 +110,25 @@ out (int numprocs, int myid, MPI_Comm new_comm, int ndims, int *dim_size,
 
   // Define a row vector
 
-  int sizeofdouble = 0;
-  int sizeofunk = 0;
-  MPI_Type_extent (MPI_DOUBLE, (MPI_Aint *) & sizeofdouble);
-  MPI_Type_extent (mycolumn, (MPI_Aint *) & sizeofunk);
+    MPI_Aint sizeofdouble = 0;
+    MPI_Aint sizeofunk = 0;
+    MPI_Aint lb;
+    MPI_Type_get_extent(MPI_DOUBLE, &lb, &sizeofdouble);
+    MPI_Type_get_extent(mycolumn, &lb, &sizeofunk);
 
   // Define a datatype with a stride 
 //  MPI_Type_vector (small_x, 1, 2, MPI_DOUBLE, &small_row);
 //  MPI_Type_hvector (small_y, 1, big_x*sizeofdouble, MPI_DOUBLE, &small_block);
 
-  MPI_Type_hvector ((small_x - 2 * NGC), (small_y - 2 * NGC),
+    MPI_Type_create_hvector((small_x - 2 * NGC), (small_y - 2 * NGC),
 		    big_y * sizeofunk, mycolumn, &small_row);
   MPI_Type_commit (&small_row);
 
-  MPI_Aint disps[2] = { 0, (small_x - 2 * NGC) * sizeof (unk) };	/* guessing... */
-  int blocklengths[2] = { 1, 1 };
-  MPI_Datatype types[2] = { small_row, MPI_UB };
+    MPI_Aint disps[1] = {(small_x - 2 * NGC) * sizeof(unk)};    /* guessing... */
+    int blocklengths[1] = {1};
+    MPI_Datatype types[1] = {small_row};
 
-  MPI_Type_struct (2, blocklengths, disps, types, &big_type);
+    MPI_Type_create_struct(1, blocklengths, disps, types, &big_type);
   MPI_Type_commit (&big_type);
 
 //  MPI_Gatherv (&small_arr[0][0], small_x * small_y, MPI_DOUBLE,

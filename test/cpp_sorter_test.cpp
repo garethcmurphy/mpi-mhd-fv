@@ -1,48 +1,32 @@
-#include <algorithm>
 
-#include "cpp_sorter.h"
-#include "sgn.h"
+
+#include "riemann.h"
 #include "gtest/gtest.h"
 
-TEST(cpp_sorter_test, null_term_str_sort)
+
+TEST(sgn_test, int_arr_sort
+)
 {
-    char arr[] = "abcdefghab";
-    char eq[]  = "aabbcdefgh";
-    int sz = sizeof(arr)/sizeof(arr[0]) - 1; // we need it, to avoid terminating \0 in "" definition case
-
-    array_sort(arr, sz);
-
-    for(int i=0; i<sz; i++)
-	EXPECT_EQ(arr[i], eq[i]);
+double num = -7;
+double result = sgn(num);
+EXPECT_EQ(result,
+-1);
 }
 
-TEST(cpp_sorter_test, char_arr_sort)
+
+TEST(riemann_test, int_arr_sort
+)
 {
-    char arr[] = {'a','b','c','d','e','f','g','h','a','b'};
-    char eq[]  = {'a','a','b','b','c','d','e','f','g','h'};
-    int sz = sizeof(arr)/sizeof(arr[0]);
-
-    array_sort(arr, sz);
-
-    for(int i=0; i<sz; i++)
-	EXPECT_EQ(arr[i], eq[i]);
-}
-
-TEST(cpp_sorter_test, int_arr_sort)
-{
-    int arr[] = {9,8,7,6,5,4,3,2,1,0};
-    int eq[]  = {0,1,2,3,4,5,6,7,8,9};
-    int sz = sizeof(arr)/sizeof(arr[0]);
-
-    array_sort(arr, sz);
-
-    for(int i=0; i<sz; i++)
-	EXPECT_EQ(arr[i], eq[i]);
-}
-
-TEST(sgn_test, int_arr_sort)
-{
-	double num=-7;
-	double result=sgn(num);
-	EXPECT_EQ(result, -1);
+double num = -7;
+double lhs[] = {1, 0, 0, 0, 1, 1, 1, 1};
+double rhs[] = {1, 0, 0, 0, 1, 1, 1, 1};
+double flux[7];
+double res_state[7];
+double exp_res_state[] = {0, 0, 0, 0, 0, 0, 0, 0};
+double *max_speed;
+int idir;
+int time_step;
+double result = riemann(lhs, rhs, flux, res_state, time_step, max_speed, idir);
+EXPECT_FLOAT_EQ(exp_res_state[0], res_state[0]
+);
 }

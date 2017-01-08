@@ -80,7 +80,6 @@ riemann(double *leftstate,
     double rho = 0;
     double mass = 0;
     double rhoi = 0;
-    double srhoi = 0;
     double u = 0;
     double v = 0;
     double w = 0;
@@ -91,7 +90,6 @@ riemann(double *leftstate,
     double csound2 = 0;
     double term = 0;
     double a_star2 = 0;
-    double vv2 = 0;
     double kinetic = 0;
     double p_magnetic = 0;
     double internal_energy = 0;
@@ -258,7 +256,6 @@ riemann(double *leftstate,
     /* Compute fast and slow speeds */
     rho = rho_rl;
     rhoi = 1 / rho;
-    srhoi = 1 / sqrt(rho);
     u = u_rl;
     v = v_rl;
     w = w_rl;
@@ -266,7 +263,6 @@ riemann(double *leftstate,
     bv = bv_rl * sqrt(rhoi);
     bw = bw_rl * sqrt(rhoi);
     bsquared = (bu * bu + bv * bv + bw * bw);
-    vv2 = (u * u + v * v + w * w);
     p = p_rl;
     calfven2 = fabs(bu * bu);
     calfven = sqrt(calfven2);
@@ -863,6 +859,8 @@ riemann(double *leftstate,
         }
     }
 
+#ifdef DEBUG_RIEMANN
     outFile.close();
+#endif
     return 0;
 }

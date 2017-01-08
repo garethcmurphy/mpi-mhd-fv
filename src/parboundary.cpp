@@ -47,13 +47,13 @@ parboundary(
     MPI_Datatype MpiyFaceRowType;
 
 
-    MPI_Aint disps[3] = {0, (unsigned long int) test.array - (unsigned long int) &test.temperature,
+    MPI_Aint disps[2] = {(unsigned long int) test.array - (unsigned long int) &test.temperature,
                          sizeof(test)};    /* guessing... */
-    int blks[3] = {1, ne, 1};
-    MPI_Datatype types[3] = {MPI_INT, MPI_DOUBLE, MPI_UB};
+    int blks[2] = {1, ne};
+    MPI_Datatype types[2] = {MPI_INT, MPI_DOUBLE};
 
 
-    MPI_Type_struct(3, blks, disps, types, &MPI_unk_type);
+    MPI_Type_create_struct(2, blks, disps, types, &MPI_unk_type);
     MPI_Type_commit(&MPI_unk_type);
 
 
@@ -80,7 +80,6 @@ parboundary(
     MPI_Type_vector(1,        /* # row elements */
                     ny + 1,    /* 1 row only */
                     0,        /* skip ny elements */
-            //    myrow,   /* elements are double */
                     MPI_DOUBLE,    /* elements are double */
                     &MpiFaceRowType);    /* MPI derived datatype */
 
@@ -95,7 +94,6 @@ parboundary(
     MPI_Type_vector(1,        /* # row elements */
                     ny + 1,    /* 1 row only */
                     0,        /* skip ny elements */
-            //    myrow,   /* elements are double */
                     MPI_DOUBLE,    /* elements are double */
                     &MpiyFaceRowType);    /* MPI derived datatype */
 

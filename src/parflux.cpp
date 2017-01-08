@@ -24,6 +24,7 @@ errcheck(int rc, int *myaddress, int ii, int jj) {
         MPI_Abort(MPI_COMM_WORLD, 50505050);
         exit(0);
     }
+    return 0;
 }
 
 int
@@ -497,4 +498,5 @@ parflux(TNT::Array2D<unk> mesh,
         }
     }
 
+    return 0;
 }
