@@ -2,9 +2,7 @@
 #include "riemann.h"
 #include "PhysConsts.h"
 
-#define DEBUG_RIEMANN
 #define DEBUG_EV
-#undef DEBUG_RIEMANN
 //#define CONS_FLUX
 #define EINFELDT_FIX
 #define MINVAL(a, b) a<b?a:b
@@ -301,200 +299,8 @@ riemann(double *leftstate,
     lambda[6] = u_rl + cfast;
 
 
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        outFile << endl;
-        outFile << "Time Step " << time_step << endl;
-        outFile << "Left and Right States -----" << endl;
-
-        outFile << "rl " << rl
-      << " ul " << ul
-      << " vl " << vl
-      << " wl " << wl
-      << " pl " << pl
-      << " bul " << bul << " bvl " << bvl << " bwl " << bwl << endl;
-
-  //               for ( hh=0 ; hh<8 ; hh++ )
-  //               {
-  //                       outFile << lrsp[hh] << " " ;
-  //               }
-  //               outFile << endl;
-
-
-
-        outFile << "rr " << rr
-      << " ur " << ur
-      << " vr " << vr
-      << " wr " << wr
-      << " pr " << pr
-      << " bur " << bur << " bvr " << bvr << " bwr " << bwr << endl;
-        outFile << endl;
-
-        outFile << "Average State -----" << endl;
-        outFile << "rl " << rho_rl
-      << " ul " << u_rl
-      << " vl " << v_rl
-      << " wl " << w_rl
-      << " pl " << p_rl
-      << " bul " << bu_rl << " bvl " << bv_rl << " bwl " << bw_rl << endl;
-
-        outFile << endl;
-        outFile << "Difference Between Left and Right States -----" << endl;
-        outFile << "del_rho " << cc[0]
-      << " del_u " << cc[1]
-      << " del_v " << cc[2]
-      << " del_w " << cc[3]
-      << " del_p " << cc[4]
-      << " del_bv " << cc[5] << " del_bw " << cc[6] << endl;
-        outFile << endl;
-
-        outFile << "Fast, Slow , Alfven speeds-----" << endl;
-        outFile
-      << " cfast " << cfast
-      << " cslow " << cslow << " calfven " << calfven << endl;
-        outFile << endl;
-
-        outFile << "Characteristic wave speeds (Eigenvalues)-----" << endl;
-        outFile << "lam1 " << lambda[0]
-      << " lam2 " << lambda[1]
-      << " lam3 " << lambda[2]
-      << " lam4 " << lambda[3]
-      << " lam5 " << lambda[4]
-      << " lam6 " << lambda[5] << " lam7 " << lambda[6] << endl;
-        outFile << endl;
-
-#ifdef DEBUG_EV
-
-
-
-        outFile << "Left Eigenvectors -----" << endl;
-        for (jj = 0; jj < 7; jj++)
-      {
-        for (ii = 0; ii < 7; ii++)
-          {
-            outFile << levec[ii][jj] << "\t";
-          }
-        outFile << endl;
-      }
-        outFile << endl;
-
-
-        outFile << "Right Eigenvectors -----" << endl;
-        for (jj = 0; jj < 7; jj++)
-      {
-        for (ii = 0; ii < 7; ii++)
-          {
-            outFile << revec[ii][jj] << "\t";
-          }
-        outFile << endl;
-      }
-        outFile << endl;
-
-
-
-        outFile << "Left Cons Eigenvectors -----" << endl;
-        for (jj = 0; jj < 7; jj++)
-      {
-        for (ii = 0; ii < 7; ii++)
-          {
-            outFile << levc[ii][jj] << "\t";
-          }
-        outFile << endl;
-      }
-        outFile << endl;
-
-
-        outFile << "Right Cons Eigenvectors -----" << endl;
-        for (jj = 0; jj < 7; jj++)
-      {
-        for (ii = 0; ii < 7; ii++)
-          {
-            outFile << revc[ii][jj] << "\t";
-          }
-        outFile << endl;
-      }
-        outFile << endl;
-
-#endif /* DEBUG_EV */
-
-        outFile << "Dots of left and right ev -----" << endl;
-        for (kk = 0; kk < 7; kk++)
-      {
-        temp = 0;
-      }
-        for (kk = 0; kk < 7; kk++)
-      {
-        for (jj = 0; jj < 7; jj++)
-          {
-            outFile << levec[jj][kk] * revec[jj][kk] << " ";
-            temp = temp + levec[jj][kk] * revec[jj][kk];
-          }
-        outFile << temp << endl;
-        temp = 0;
-      }
-
-
-        outFile << "Dots of left and right ev -----" << endl;
-        for (kk = 0; kk < 7; kk++)
-      {
-        temp = 0;
-      }
-        for (kk = 0; kk < 7; kk++)
-      {
-        for (jj = 0; jj < 7; jj++)
-          {
-            outFile << levc[jj][kk] * revc[jj][kk] << " ";
-            temp = temp + levc[jj][kk] * revc[jj][kk];
-          }
-        outFile << temp << endl;
-        temp = 0;
-      }
-      }
-
-
-
-#endif /* DEBUG_RIEMANN */
 
     /* Compute resolved state primitives */
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        outFile << endl;
-      }
-    if (ul != ur)
-      {
-        outFile << "Eigenweights-----" << endl;
-      }
-#endif /* DEBUG_RIEMANN */
-    for (jj = 0; jj < 7; jj++) {
-        eigenwt[jj] = 0;
-        for (kk = 0; kk < 7; kk++) {
-            eigenwt[jj] = eigenwt[jj] + levec[kk][jj] * cc[kk];
-#ifdef DEBUG_RIEMANN
-            if (ul != ur)
-              {
-                outFile << eigenwt[jj] << "\t\t";
-              }
-#endif /* DEBUG_RIEMANN */
-        }
-#ifdef DEBUG_RIEMANN
-        if (ul != ur)
-      {
-        outFile << endl;
-      }
-#endif /* DEBUG_RIEMANN */
-    }
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        outFile << endl;
-      }
-    if (ul != ur)
-      {
-        outFile << "Left Primitive State-----" << endl;
-      }
-#endif /* DEBUG_RIEMANN */
 
 
     for (jj = 0; jj < 7; jj++) {
@@ -502,56 +308,21 @@ riemann(double *leftstate,
             if (lambda[kk] < 0) {
                 lrsp[jj] = lrsp[jj] + eigenwt[kk] * revec[jj][kk];
             }
-#ifdef DEBUG_RIEMANN
-            if (ul != ur)
-              {
-                outFile << lrsp[jj] << "\t\t";
-              }
-#endif /* DEBUG_RIEMANN */
         }
-#ifdef DEBUG_RIEMANN
-        if (ul != ur)
-      {
-        outFile << endl;
-      }
-#endif /* DEBUG_RIEMANN */
     }
     bu = bul;
 
 
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        outFile << endl;
-      }
-    if (ul != ur)
-      {
-        outFile << "Right Primitive State-----" << endl;
-      }
-#endif /* DEBUG_RIEMANN */
 
     for (jj = 0; jj < 7; jj++) {
-//                        rrsp[jj]=rrsp[jj];
         for (kk = 6; kk > -1; kk--) {
             if (lambda[kk] > 0) {
                 rrsp[jj] = rrsp[jj] - eigenwt[kk] * revec[jj][kk];
 
             }
-#ifdef DEBUG_RIEMANN
-            if (ul != ur)
-              {
-                outFile << rrsp[jj] << "\t\t";
-              }
-#endif /* DEBUG_RIEMANN */
             bu = bur;
         }
 
-#ifdef DEBUG_RIEMANN
-        if (ul != ur)
-      {
-        outFile << endl;
-      }
-#endif /* DEBUG_RIEMANN */
     }
 
 
@@ -583,31 +354,10 @@ riemann(double *leftstate,
         bv = 0.5 * (lrsp[5] + rrsp[5]);
         bw = 0.5 * (lrsp[6] + rrsp[6]);
 
-        /*
-           mass = 0.5*(lstate[0]+rstate[0]);
-           u    = 0.5*(lstate[1]+rstate[1]);
-           v    = 0.5*(lstate[2]+rstate[2]);
-           w    = 0.5*(lstate[3]+rstate[3]);
-           p    = 0.5*(lstate[4]+rstate[4]);
-           bu   = bur;
-           bv   = 0.5*(lstate[5]+rstate[5]);
-           bw   = 0.5*(lstate[6]+rstate[6]);
-         */
+
     }
 
 
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        outFile << endl;
-        outFile << "Resolved state primitives -----" << endl;
-        outFile << "mass " << mass << " u " << u <<
-      " v " << v <<
-      " w " << w <<
-      " p " << p << " bu " << bu << " bv " << bv << " bw " << bw << endl;
-        outFile << endl;
-      }
-#endif /* DEBUG_RIEMANN */
 
 #ifdef CONS_FLUX
 
@@ -666,17 +416,6 @@ riemann(double *leftstate,
     fr[5] = u * bv - v * bu;
     fr[6] = u * bw - w * bu;
 
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        for (ii = 0; ii < 7; ii++)
-      outFile << " " << fl[ii];
-        outFile << endl;
-        for (ii = 0; ii < 7; ii++)
-      outFile << " " << fr[ii];
-        outFile << endl;
-      }
-#endif
 
 #ifdef EINFELDT_FIX
     {
@@ -813,22 +552,6 @@ riemann(double *leftstate,
     }
 
 
-#ifdef DEBUG_RIEMANN
-    if (ul != ur)
-      {
-        outFile << "Flux Vector -----" << endl;
-        outFile << roe_flux[0]
-      << " " << roe_flux[1]
-      << " " << roe_flux[2]
-      << " " << roe_flux[3]
-      << " " << roe_flux[4]
-      << " " << roe_flux[5]
-      << " " << roe_flux[6] << " " << roe_flux[7] << endl;
-        outFile << "##############" << endl;
-        outFile << endl;
-      }
-#endif /* DEBUG_RIEMANN */
-
 #ifdef CONS_FLUX
     if (idir == 1)
       {
@@ -859,8 +582,5 @@ riemann(double *leftstate,
         }
     }
 
-#ifdef DEBUG_RIEMANN
-    outFile.close();
-#endif
     return 0;
 }
