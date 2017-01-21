@@ -1,6 +1,5 @@
-/* $Id: PhysConsts.h,v 1.3 2006-10-30 15:17:55 gmurphy Exp $  */
 /***************************************************************************
- *   Copyright (C) 2006 by Gareth Murphy   *
+ *   Copyright (C) 2017 by Gareth Murphy   *
  *   gmurphy@cp.dias.ie *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

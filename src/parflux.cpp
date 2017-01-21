@@ -1,4 +1,3 @@
-/* $Id: parflux.cpp,v 1.6 2006-11-16 13:48:07 gmurphy Exp $  */
 
 #include "mpi.h"
 #include "tnt.h"

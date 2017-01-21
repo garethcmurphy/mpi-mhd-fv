@@ -1,5 +1,4 @@
-/* $Id: main.cpp,v 1.6 2006-11-16 13:48:07 gmurphy Exp $  */
-/* 
+/*
  * PHYSICS:
  * Ideal MHD - Cartesian
  * Resistivity
