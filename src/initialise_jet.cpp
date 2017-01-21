@@ -1,4 +1,3 @@
-/* $Id: initialise_jet.cpp,v 1.5 2006-11-16 13:48:06 gmurphy Exp $  */
 
 /*
  */

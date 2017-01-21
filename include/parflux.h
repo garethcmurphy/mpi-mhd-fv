@@ -1,4 +1,3 @@
-/* $Id: parflux.h,v 1.5 2006-11-16 13:48:07 gmurphy Exp $  */
 
 #include "tnt.h"
 #include "out.h"
