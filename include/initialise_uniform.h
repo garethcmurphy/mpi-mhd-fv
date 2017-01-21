@@ -1,4 +1,3 @@
-/* $Id: initialise_uniform.h,v 1.3 2006-10-30 15:17:55 gmurphy Exp $  */
 #include "out.h"
 int initialise_uniform (TNT::Array2D < unk > mesh,
 			TNT::Array2D < double >faceBx,
