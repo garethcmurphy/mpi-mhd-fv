@@ -18,7 +18,12 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+Docker
+cmake (minimum 2.8.7)
+gcc
+ctest
+Google Test
+hdf5
 ```
 
 ### Installing
@@ -28,7 +33,7 @@ A step by step series of examples that tell you have to get a development env ru
 Say what the step will be
 
 ```
-Give the example
+docker build .
 ```
 
 And repeat
@@ -41,7 +46,10 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-I use Google Test/ctest
+Google Test/ctest platform is used
+
+```
+```
 
 ### Break down into end to end tests
 
