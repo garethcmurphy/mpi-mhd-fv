@@ -33,39 +33,30 @@ A step by step series of examples that tell you have to get a development env ru
 Say what the step will be
 
 ```
-docker build .
+docker build -t mhd .
 ```
 
 And repeat
 
 ```
-until finished
+docker run -it mhd /bin/bash 
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+You can use 
+```
+python3 ../see.py 
+```
+to plot a file
 
 ## Running the tests
 
 Google Test/ctest platform is used
 
 ```
+ctest -VV
 ```
 
-### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
@@ -84,7 +75,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Gareth Murphy** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Gareth Murphy** - *Initial work* - [garethcmurphy](https://github.com/garethcmurphy)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
