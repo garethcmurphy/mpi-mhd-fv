@@ -1,6 +1,6 @@
 # MPI-MHD-FV
 
-This is a parallel, MPI version of the magnetohydrodynamics equations.
+This is a numerical code developed to solve the magnetohydrodynamics equations. It was developed primarily for jets in the interstellar medium. 
 
 
 ### Status
