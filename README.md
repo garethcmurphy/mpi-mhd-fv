@@ -6,6 +6,8 @@ This is a numerical code developed to solve the magnetohydrodynamics equations. 
 ### Status
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/34b42d431caf402d8cb1c8bdb1dba221)](https://www.codacy.com/app/garethcmurphy/mpi-mhd-fv?utm_source=github.com&utm_medium=referral&utm_content=garethcmurphy/mpi-mhd-fv&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/garethcmurphy/mpi-mhd-fv.svg?branch=master)](https://travis-ci.org/garethcmurphy/mpi-mhd-fv)
+[![DOI](https://zenodo.org/badge/50610732.svg)](https://zenodo.org/badge/latestdoi/50610732)
+
 
 
 
